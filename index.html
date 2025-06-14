@@ -1,176 +1,605 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Denny Svalina | Portfolio &amp; Projekte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denny Svalina | Portfolio & Projekte</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @keyframes grow {
-            from { width: 0; }
-            to { width: var(--width); }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            left: -8px;
+            top: 0;
+            background: #3b82f6;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
-    <header class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-center py-10 shadow-lg">
-        <h1 class="text-4xl font-bold mb-2">Denny Svalina</h1>
-        <p class="text-xl font-light">Digitale Medien &amp; Medizin | Schüler mit Zukunft</p>
-        <div class="mt-4">
-            <a class="mx-2 text-2xl" href="https://www.instagram.com/denny_svalin_2006" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a class="mx-2 text-2xl" href="https://github.com/hudnur111" target="_blank">
-                <i class="fab fa-github"></i>
-                            <a class="mx-2 text-2xl" href="https://flowcv.com/resume/rbifmfa4s2ea" target="_blank">
-                <i class="fas fa-file-alt"></i>
-            </a>
-        </div>
-    </header>
-    <nav class="bg-blue-800 text-white flex justify-center flex-wrap py-4 shadow-md">
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600 active-tab" onclick="openTab(event, 'start')">Start</button>
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'ueber')">Über mich</button>
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'schule')">Schule</button>
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'skills')">Fähigkeiten</button>
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'projekte')">Projekte</button>
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'politik')">Politik</button>
-        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'kontakt')">Kontakt</button>
-    </nav>
-    <section class="tab-content active max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md" id="start">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Willkommen auf meiner Website!</h2>
-        <p class="leading-relaxed">Ich bin Denny Svalina – technikbegeistert, wissbegierig und engagiert. Auf dieser Website findest du einen Überblick über meine schulische Laufbahn, meine Projekte im Bereich Informatik und Medizin, sowie meine ehrenamtlichen Tätigkeiten. Mein Ziel: Wissen sinnvoll einsetzen und mit Herzblut weiterentwickeln.</p>
-    </section>
-    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="ueber">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Über mich</h2>
-        <p class="leading-relaxed"><strong>Geboren:</strong> 21. Juni 2006</p>
-        <p class="leading-relaxed">Ich interessiere mich seit Jahren leidenschaftlich für medizinische Themen, insbesondere Notfallmedizin und TCCC, ebenso wie für digitale Technologien, App-Entwicklung und Webdesign. Durch praktische Erfahrungen, Projekte und Fortbildungen konnte ich mein Wissen ständig erweitern und vertiefen.</p>
-        <p class="leading-relaxed"><strong>Sprachen:</strong></p>
-        <ul class="list-disc pl-5">
-            <li>Deutsch – fließend</li>
-            <li>Kroatisch – fließend</li>
-            <li>Englisch – fließend</li>
-            <li>Französisch – Grundkenntnisse</li>
-        </ul>
-    </section>
-    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="schule">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Schullaufbahn &amp; Bildung</h2>
-        <ul class="list-disc pl-5">
-            <li>2024–2025: BKP II – Pflege und Gesundheit (AVH)</li>
-            <li>2023–2024: BKP I – Pflege und Gesundheit (AVH)</li>
-            <li>2019–2023: Adalbert-Stifter-Realschule</li>
-            <li>2017–2019: Hans-Baldung-Gymnasium</li>
-            <li>2013–2017: Grundschule Stauferschule</li>
-        </ul>
-        <p class="leading-relaxed"><strong>Geplanter Abschluss:</strong> Fachhochschulreife (2025)</p>
-        <p class="leading-relaxed"><strong>Erreicht:</strong> Realschulabschluss (2024)</p>
-    </section>
-    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="skills">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Fähigkeiten &amp; Kompetenzen</h2>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 100%; animation: grow 2s ease-in-out forwards;">Office 365 (100%)</div>
-        </div>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 95%; animation: grow 2s ease-in-out forwards;">HTML (95%)</div>
-        </div>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 95%; animation: grow 2s ease-in-out forwards;">CSS (95%)</div>
-        </div>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 90%; animation: grow 2s ease-in-out forwards;">Grafikdesign (90%)</div>
-        </div>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 90%; animation: grow 2s ease-in-out forwards;">3D-Druck (90%)</div>
-        </div>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 70%; animation: grow 2s ease-in-out forwards;">Python (70%)</div>
-        </div>
-        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
-            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 40%; animation: grow 2s ease-in-out forwards;">Processing (40%)</div>
-        </div>
-        <p class="leading-relaxed">Ich verbinde kreative Gestaltung mit technischem Know-how. Besonders gern arbeite ich an interaktiven Weblösungen oder medizinischen Tools zur Digitalisierung von Arbeitsprozessen.</p>
-        <h3 class="text-xl font-semibold text-blue-700 mt-6">Weitere Einblicke &amp; Ressourcen</h3>
-        <ul class="list-disc pl-5">
-            <li><strong>HTML:</strong> <a class="text-blue-600 hover:underline" href="https://drive.google.com/file/d/1JyAyyNTOuQYWhyjmzf1C89mZ_4PL0CCk/view?usp=sharing" target="_blank">HTML-Anleitung (Teil 1)</a></li>
-            <li><strong>HTML:</strong> <a class="text-blue-600 hover:underline" href="https://drive.google.com/file/d/1C3GaQfpAYAcwOrIv2H4AMNe2_K64dD8D/view?usp=sharing" target="_blank">HTML-Anleitung (Teil 2)</a></li>
-            <li><strong>3D-Druck:</strong> <a class="text-blue-600 hover:underline" href="https://drive.google.com/file/d/1SHBfayy98IyDOfZ1phBl_DRRiXo9flGF/view?usp=sharing" target="_blank">Beispielprojekt 3D-Druck</a></li>
-        </ul>
-    </section>
-    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="projekte">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Projekte &amp; Veröffentlichungen</h2>
-        <ul class="list-disc pl-5">
-            <li><strong>Game LSS:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/Leitstellenspiel-Verkehrs--und-Wetterdaten-Dashboard" target="_blank">Leitstellenspiel Verkehrs- und Wetterdaten Dashboard</a></li>
-            <li><strong>Game LSS:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/-Leitstellenspiel-Ausr-cke-Verz-gerung-der-Fahrzeuge.user.js" target="_blank">Leitstellenspiel Ausrücke-Verzögerung der Fahrzeuge</a></li>
-            <li><strong>Add Blocker Browser:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/CleanBrowse.user.js" target="_blank">CleanBrowse</a></li>
-            <li><strong>Medizin:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/Anamnese-App" target="_blank">Anamnese-App</a></li>
-        </ul>
-        <p class="leading-relaxed">Die Projekte vereinen meine Interessen in Programmierung, Design und medizinischer Anwendung. Viele davon sind Open Source und ständig in Entwicklung.</p>
-    </section>
-    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="politik">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Politisches Engagement</h2>
-        <ul class="list-disc pl-5">
-            <li>
-                <a class="text-blue-600 hover:underline" href="https://jugendforum.wixsite.com/jugendforum-asr-gd/de" target="_blank"><strong>Jugendforum ASR GD</strong></a>
-                <br/>Ich war Mitglied des Jugendforums der ASR auf kommunaler Ebene sowie auf der Ostalb-Ebene. In dieser Funktion habe ich zahlreiche Schulprojekte geplant und an Planungen auf Kreisebene und kommunaler Ebene mitgewirkt.
-            </li>
-            <br/>
-            <li>
-                <a class="text-blue-600 hover:underline" href="https://www.oedp-ostalb.de/startseite" target="_blank"><strong>ÖDP Ostalbkreis</strong></a>
-                <br/>Ich war mehrere Jahre in der ÖDP Ostalb tätig, wo wir uns auf die Kommunalebene konzentriert und gemeinsam mit anderen Parteien in Schwäbisch Gmünd zusammengearbeitet haben.
-            </li>
-        </ul>
-    </section>
-    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="kontakt">
-        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Kontakt</h2>
-        <p class="leading-relaxed">Du möchtest mit mir in Kontakt treten? Schreib mir einfach eine Nachricht über das folgende Formular oder besuche meine digitale Visitenkarte:</p>
-        <p><a class="text-blue-600 hover:underline" href="https://spreadly.app/p/4wbc1boylf" target="_blank">Meine digitale Visitenkarte ansehen</a></p>
-        <div class="flex flex-col md:flex-row">
-            <div class="md:w-1/2">
-                <form action="mailto:deine@mailadresse.de" class="mt-4" enctype="text/plain" method="post">
-                    <label class="block text-gray-700" for="name">Dein Name:</label>
-                    <input class="w-full p-2 border border-gray-300 rounded mb-4" id="name" name="name" required="" type="text"/>
-                    <label class="block text-gray-700" for="email">Deine E-Mail-Adresse:</label>
-                    <input class="w-full p-2 border border-gray-300 rounded mb-4" id="email" name="email" required="" type="email"/>
-                    <label class="block text-gray-700" for="nachricht">Deine Nachricht:</label>
-                    <textarea class="w-full p-2 border border-gray-300 rounded mb-4" id="nachricht" name="nachricht" required="" rows="5"></textarea>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Absenden</button>
-                </form>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">Denny Svalina</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-500">Über mich</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-blue-500">Bildung</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-500">Fähigkeiten</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500">Projekte</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500">Kontakt</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="md:w-1/2 md:pl-4 mt-8 md:mt-0">
-                <h3 class="text-xl font-semibold text-blue-700 mb-4">Kontaktinformationen</h3>
-                <ul class="list-none">
-                    <li class="mb-2"><i class="fas fa-phone-alt text-blue-600 mr-2"></i> +49 152 03721539</li>
-                    <li class="mb-2"><i class="fas fa-envelope text-blue-600 mr-2"></i> denny.svalin2@gmail.com</li>
-                    <li class="mb-2"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Schwäbisch Gmünd, Deutschland</li>
-                </ul>
-                <div class="mt-4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84132.06626204733!2d9.746250993018723!3d48.77946428126707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799080b4400e09d%3A0x41ffd3c8d096fd0!2zU2Nod8OkYmlzY2ggR23DvG5k!5e0!3m2!1sde!2sde!4v1744792468618!5m2!1sde!2sde" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4 shadow-md">
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-500">Über mich</a>
+            <a href="#education" class="block py-2 text-gray-700 hover:text-blue-500">Bildung</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-500">Fähigkeiten</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-500">Projekte</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-500">Kontakt</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-green-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Digitale Medien & Medizin</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 gradient-text">Schüler mit Zukunft</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Technikbegeistert, wissbegierig und engagiert. Mein Ziel: Wissen sinnvoll einsetzen und mit Herzblut weiterentwickeln.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                            Meine Projekte
+                        </a>
+                        <a href="#contact" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">
+                            Kontakt
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-green-400 opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-user-circle text-gray-300 text-8xl"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="text-center py-6 bg-gray-800 text-white mt-8">
-        © 2025 Denny Svalina – Portfolio &amp; Projekte
-        <br/>
-        <div class="mt-4">
-            <a class="mx-2 text-2xl" href="https://www.instagram.com/denny_svalin_2006" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a class="mx-2 text-2xl" href="https://github.com/hudnur111" target="_blank">
-                <i class="fab fa-github"></i>
-                            <a class="mx-2 text-2xl" href="https://flowcv.com/resume/rbifmfa4s2ea" target="_blank">
-                <i class="fas fa-file-alt"></i>
-            </a>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Über mich</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-semibold mb-4">Persönliche Daten</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-birthday-cake text-blue-500 mt-1 mr-3"></i>
+                                <span><strong>Geboren:</strong> 21. Juni 2006</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i>
+                                <span><strong>Ort:</strong> Schwäbisch Gmünd, Deutschland</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm mt-6">
+                        <h3 class="text-xl font-semibold mb-4">Sprachen</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Deutsch – fließend</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Kroatisch – fließend</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Englisch – fließend</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Französisch – Grundkenntnisse</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm h-full">
+                        <h3 class="text-xl font-semibold mb-4">Meine Interessen</h3>
+                        <p class="mb-4">
+                            Ich interessiere mich seit Jahren leidenschaftlich für medizinische Themen, insbesondere Notfallmedizin und TCCC, ebenso wie für digitale Technologien, App-Entwicklung und Webdesign.
+                        </p>
+                        <p class="mb-4">
+                            Durch praktische Erfahrungen, Projekte und Fortbildungen konnte ich mein Wissen ständig erweitern und vertiefen.
+                        </p>
+                        <div class="mt-6">
+                            <h4 class="font-medium mb-2">Meine Leidenschaften:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Medizin</span>
+                                <span class="skill-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Webentwicklung</span>
+                                <span class="skill-badge bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">App-Entwicklung</span>
+                                <span class="skill-badge bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">3D-Druck</span>
+                                <span class="skill-badge bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Notfallmedizin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Schullaufbahn & Bildung</h2>
+            
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="border-l-2 border-blue-200 pl-8 ml-4 space-y-10">
+                    <!-- Timeline item -->
+                    <div class="relative timeline-item">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold">BKP II – Pflege und Gesundheit (AVH)</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2024–2025</span>
+                            </div>
+                            <p class="mt-2 text-gray-600">Geplanter Abschluss: Fachhochschulreife</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item -->
+                    <div class="relative timeline-item">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold">BKP I – Pflege und Gesundheit (AVH)</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2023–2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item -->
+                    <div class="relative timeline-item">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold">Adalbert-Stifter-Realschule</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2019–2023</span>
+                            </div>
+                            <p class="mt-2 text-gray-600">Erreicht: Realschulabschluss (2024)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item -->
+                    <div class="relative timeline-item">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold">Hans-Baldung-Gymnasium</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2017–2019</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item -->
+                    <div class="relative timeline-item">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold">Grundschule Stauferschule</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2013–2017</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Fähigkeiten & Kompetenzen</h2>
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <p class="text-lg text-gray-600">
+                    Ich verbinde kreative Gestaltung mit technischem Know-how. Besonders gern arbeite ich an interaktiven Weblösungen oder medizinischen Tools zur Digitalisierung von Arbeitsprozessen.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Webentwicklung</h3>
+                    <p class="text-gray-600 mb-4">Erfahrung in HTML, CSS und JavaScript für moderne Webanwendungen.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">CSS</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">App Entwicklung</h3>
+                    <p class="text-gray-600 mb-4">Entwicklung von praktischen Anwendungen für den medizinischen Bereich.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Anamnese-Apps</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Browser Extensions</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-purple-500 text-4xl mb-4">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">3D-Druck</h3>
+                    <p class="text-gray-600 mb-4">Erfahrung in der Erstellung und Umsetzung von 3D-Druck Projekten.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">3D-Modellierung</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Prototyping</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold text-center mb-8">Weitere Einblicke & Ressourcen</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="https://drive.google.com/file/d/1JyAyyNTOuQYWhyjmzf1C89mZ_4PL0CCk/view?usp=sharing" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 border border-gray-200 hover:border-blue-300">
+                        <div class="text-blue-500 text-3xl mb-4">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h4 class="font-medium mb-2">HTML-Anleitung (Teil 1)</h4>
+                        <p class="text-gray-600 text-sm">Grundlagen der Webentwicklung</p>
+                    </a>
+                    
+                    <a href="https://drive.google.com/file/d/1C3GaQfpAYAcwOrIv2H4AMNe2_K64dD8D/view?usp=sharing" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 border border-gray-200 hover:border-blue-300">
+                        <div class="text-blue-500 text-3xl mb-4">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h4 class="font-medium mb-2">HTML-Anleitung (Teil 2)</h4>
+                        <p class="text-gray-600 text-sm">Fortgeschrittene Techniken</p>
+                    </a>
+                    
+                    <a href="https://drive.google.com/file/d/1SHBfayy98IyDOfZ1phBl_DRRiXo9flGF/view?usp=sharing" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 border border-gray-200 hover:border-blue-300">
+                        <div class="text-purple-500 text-3xl mb-4">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h4 class="font-medium mb-2">Beispielprojekt 3D-Druck</h4>
+                        <p class="text-gray-600 text-sm">Praktische Anwendungen</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Projekte & Veröffentlichungen</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-800 p-3 rounded-lg mr-4">
+                            <i class="fas fa-gamepad text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Leitstellenspiel Verkehrs- und Wetterdaten Dashboard</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ein Dashboard für das Leitstellenspiel, das Verkehrs- und Wetterdaten in Echtzeit anzeigt.
+                    </p>
+                    <a href="https://github.com/Hudnur111/Leitstellenspiel-Verkehrs--und-Wetterdaten-Dashboard" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                        <span>Zum Projekt</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
+                            <i class="fas fa-ambulance text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Leitstellenspiel Ausrücke-Verzögerung der Fahrzeuge</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ein Tool, das die Ausrückezeiten von Fahrzeugen im Leitstellenspiel optimiert und analysiert.
+                    </p>
+                    <a href="https://github.com/Hudnur111/-Leitstellenspiel-Ausr-cke-Verz-gerung-der-Fahrzeuge.user.js" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                        <span>Zum Projekt</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 text-purple-800 p-3 rounded-lg mr-4">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">CleanBrowse</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ein Add Blocker Browser, der das Surfen im Internet sicherer und angenehmer macht.
+                    </p>
+                    <a href="https://github.com/Hudnur111/CleanBrowse.user.js" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                        <span>Zum Projekt</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-800 p-3 rounded-lg mr-4">
+                            <i class="fas fa-heartbeat text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Anamnese-App</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Eine medizinische App zur Erfassung von Patientendaten und Anamnese.
+                    </p>
+                    <a href="https://github.com/Hudnur111/Anamnese-App" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                        <span>Zum Projekt</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600">
+                    Die Projekte vereinen meine Interessen in Programmierung, Design und medizinischer Anwendung. Viele davon sind Open Source und ständig in Entwicklung.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Politisches Engagement</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Engagement 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 text-yellow-800 p-3 rounded-lg mr-4">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Jugendforum ASR GD</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ich war Mitglied des Jugendforums der ASR auf kommunaler Ebene sowie auf der Ostalb-Ebene. In dieser Funktion habe ich zahlreiche Schulprojekte geplant und an Planungen auf Kreisebene und kommunaler Ebene mitgewirkt.
+                    </p>
+                    <a href="https://jugendforum.wixsite.com/jugendforum-asr-gd/de" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                        <span>Zur Website</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Engagement 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
+                            <i class="fas fa-landmark text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">ÖDP Ostalbkreis</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ich war mehrere Jahre in der ÖDP Ostalb tätig, wo wir uns auf die Kommunalebene konzentriert und gemeinsam mit anderen Parteien in Schwäbisch Gmünd zusammengearbeitet haben.
+                    </p>
+                    <a href="https://www.oedp-ostalb.de/startseite" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                        <span>Zur Website</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-r from-blue-50 to-green-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Kontakt</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-semibold mb-6">Schreib mir eine Nachricht</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Nachricht</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                                Nachricht senden
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                        <h3 class="text-xl font-semibold mb-6">Kontaktinformationen</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 text-blue-800 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Telefon</h4>
+                                    <p class="text-gray-600">+49 152 03721539</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p class="text-gray-600">denny.svalin2@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 text-purple-800 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Adresse</h4>
+                                    <p class="text-gray-600">Schwäbisch Gmünd, Deutschland</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="https://spreadly.app/p/4wbc1boylf" target="_blank" class="inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                                <i class="fas fa-id-card mr-2"></i>
+                                Meine digitale Visitenkarte ansehen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Denny Svalina. Alle Rechte vorbehalten.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
+
     <script>
-        function openTab(event, tabId) {
-            const tabs = document.querySelectorAll(".tab-content");
-            const buttons = document.querySelectorAll("nav button");
-            tabs.forEach(tab => tab.classList.add("hidden"));
-            buttons.forEach(btn => btn.classList.remove("active-tab"));
-            document.getElementById(tabId).classList.remove("hidden");
-            event.target.classList.add("active-tab");
-        }
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert(`Vielen Dank für Ihre Nachricht, ${name}! Wir werden uns bald bei Ihnen melden.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
     </script>
 </body>
 </html>
