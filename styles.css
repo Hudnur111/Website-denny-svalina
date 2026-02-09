@@ -1,0 +1,549 @@
+/* ===== RESET STYLES ===== */
+/* Normalisierung & einheitliche Basis */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== CSS-VARIABLEN: Light-Theme (Standard) ===== */
+:root {
+  --bg: #fbfaf7;
+  --paper: #ffffff;
+  --surface: #ffffff; /* UI surfaces */
+  --muted-bg: #f3f4f6; /* subtle surfaces like meters */
+  --card-hd-start: rgba(255, 255, 255, 0.85);
+  --card-hd-end: rgba(255, 255, 255, 0.60);
+  --muted-note-bg: rgba(17, 24, 39, 0.02);
+  --muted-dashed: rgba(17, 24, 39, 0.12);
+  --ink: #0f1724;
+  --muted: #4b5563;
+  --muted2: #6b7280;
+  --line: #e6e9ee;
+  --accent: #0f766e;
+  --accent2: #0b4b47;
+  --shadow: 0 14px 40px rgba(17, 24, 39, 0.08);
+  --radius: 14px;
+  --max: 1100px;
+  --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+/* ===== Header-Oberflächenfarbe ===== */
+:root {
+  --masthead-bg: rgba(251, 250, 247, 0.78);
+}
+
+/* ===== Basis-Styles ===== */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(
+      800px 380px at 8% 0%,
+      rgba(15, 118, 110, 0.06),
+      transparent 55%
+    ),
+    radial-gradient(
+      700px 340px at 92% 8%,
+      rgba(17, 24, 39, 0.04),
+      transparent 60%
+    ),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* gentle global transitions */
+:root,
+* {
+  transition-property: background, border-color, color, opacity;
+  transition-duration: 0.18s;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 70px;
+}
+
+/* ===== Header / Navigation ===== */
+.masthead {
+  position: sticky;
+  top: 10px;
+  z-index: 40;
+  margin: 8px 0 0;
+  background: var(--masthead-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(17, 24, 39, 0.04);
+}
+
+.masthead .inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.id {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 220px;
+}
+
+.mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--accent2);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 118, 110, 0.12),
+    rgba(17, 24, 39, 0.04)
+  );
+}
+
+.id h1 {
+  font-size: 15px;
+}
+
+.id p {
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.tab {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 9px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--accent2);
+  cursor: pointer;
+  position: relative;
+}
+
+.tab:hover {
+  background: var(--surface);
+}
+
+.tab[aria-selected="true"] {
+  border-color: rgba(15, 118, 110, 0.28);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 118, 110, 0.08),
+    rgba(15, 118, 110, 0.04)
+  );
+  color: var(--accent);
+  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.03);
+}
+
+.tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+/* ===== Layout & Grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card: Container für Inhaltsblöcke mit Hover-Animation */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1),
+    box-shadow 0.28s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(17, 24, 39, 0.08);
+}
+
+/* Card Header: Titel und Bereich-Kennzeichnung */
+.card .hd {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--card-hd-start), var(--card-hd-end));
+}
+
+.card .hd h2,
+.card .hd h3 {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  font-weight: 700;
+}
+
+/* Card Body: Haupt-Inhaltsbereich */
+.card .bd {
+  padding: 16px;
+}
+
+/* ===== Typo & Content ===== */
+.headline {
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 1.08;
+  margin-bottom: 10px;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* Pillen (Tags für Kurz-Info) */
+.pillrow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.pill {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Call-to-Action & Buttons */
+.cta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 13px;
+  color: var(--accent2);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn.primary {
+  border-color: rgba(15, 118, 110, 0.45);
+  background: rgba(15, 118, 110, 0.1);
+  color: var(--accent);
+  font-weight: 650;
+}
+
+/* ===== Tab-Sections (dynamisch sichtbar/verborgen) ===== */
+.section {
+  display: none;
+  margin-top: 16px;
+}
+
+.section.active {
+  display: block;
+}
+
+/* ===== Timeline & Items (Bildung, Praktika, Zertifikate) ===== */
+.timeline {
+  display: grid;
+  gap: 12px;
+}
+
+/* Einzelnes Zeiteintrag-Item */
+.item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface);
+}
+
+.item .top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.role {
+  font-weight: 700;
+  color: var(--accent2);
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+.desc {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== Skills & Fertigkeits-Meter ===== */
+.skill {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+@media (max-width: 560px) {
+  .skill {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fortschrittsbalken für Skill-Level */
+.meter {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--muted-bg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.meter > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 999px;
+  transition: width 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Keyword-Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tag {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== Kontakt-Formular ===== */
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(15, 118, 110, 0.45);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 700px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Info-Hinweis-Box */
+.note {
+  border: 1px dashed var(--muted-dashed);
+  background: var(--muted-note-bg);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  color: var(--muted2);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+/* ===== Dark-Theme Variablen-Overrides ===== */
+[data-theme="dark"] {
+  --bg: #07121a;
+  --paper: #0b1620;
+  --surface: #0b1620;
+  --muted-bg: rgba(255, 255, 255, 0.03);
+  --card-hd-start: rgba(255, 255, 255, 0.03);
+  --card-hd-end: rgba(255, 255, 255, 0.015);
+  --muted-note-bg: rgba(255, 255, 255, 0.03);
+  --muted-dashed: rgba(255, 255, 255, 0.06);
+  --masthead-bg: rgba(2, 6, 23, 0.6);
+  --ink: #e6eef6;
+  --muted: #9fb0bf;
+  --muted2: #93a5b3;
+  --line: rgba(255, 255, 255, 0.06);
+  --accent: #06b6d4; /* brighter cyan */
+  --accent2: #0891b2;
+  --shadow: 0 18px 48px rgba(2, 6, 23, 0.6);
+}
+
+/* ===== Einblend-Animationen (Scroll-Reveal) ===== */
+.animate {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: transform, opacity;
+}
+
+.in-view {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* ===== Barrierefreiheit: Reduzierte Bewegungen respektieren ===== */
+/* Für Nutzer mit Bewegungsempfindlichkeit: Kurze/keine Animationen */
+@media (prefers-reduced-motion: reduce) {
+  .animate,
+  .in-view,
+  .meter > span,
+  .card {
+    transition: none !important;
+  }
+}

@@ -1,200 +1,24 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Denny Svalina — Portfolio</title>
-  <meta name="description" content="Lebenslauf, Projekte, Skills und Kontakt von Denny Svalina." />
-    <script>
-    (function(){
-      try{
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      try {
+        const stored = localStorage.getItem("theme");
+        const prefersDark =
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
         /* Früh: Theme setzen, bevor Seite vollständig lädt */
-        if(stored === 'dark') document.documentElement.setAttribute('data-theme','dark');
-        else if(stored === 'light') document.documentElement.removeAttribute('data-theme');
-        else if(prefersDark) document.documentElement.setAttribute('data-theme','dark');
-      }catch(e){}
+        if (stored === "dark") document.documentElement.setAttribute("data-theme", "dark");
+        else if (stored === "light") document.documentElement.removeAttribute("data-theme");
+        else if (prefersDark) document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {}
     })();
     /* ===== Ende: Früh-Theme-Detection ===== */
   </script>
-  <style>
-    /* ===== CSS-Variablen: Light-Theme (Standard) ===== */
-    :root{
-      --bg:#fbfaf7;
-      --paper:#ffffff;
-      --surface: #ffffff; /* UI surfaces */
-      --muted-bg: #f3f4f6; /* subtle surfaces like meters */
-      --card-hd-start: rgba(255,255,255,.85);
-      --card-hd-end: rgba(255,255,255,.60);
-      --muted-note-bg: rgba(17,24,39,.02);
-      --muted-dashed: rgba(17,24,39,.12);
-      --ink:#0f1724;
-      --muted:#4b5563;
-      --muted2:#6b7280;
-      --line:#e6e9ee;
-      --accent:#0f766e;
-      --accent2:#0b4b47;
-      --shadow: 0 14px 40px rgba(17,24,39,.08);
-      --radius: 14px;
-      --max: 1100px;
-      --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-    /* ===== Header-Oberflächenfarbe ===== */
-    :root{ --masthead-bg: rgba(251,250,247,.78); }
-    
-    /* ===== Basis-Styles ===== */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:
-        radial-gradient(800px 380px at 8% 0%, rgba(15,118,110,.06), transparent 55%),
-        radial-gradient(700px 340px at 92% 8%, rgba(17,24,39,.04), transparent 60%),
-        var(--bg);
-      color:var(--ink);
-      font-family:var(--sans);
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-    }
+</head>
+<body>
 
-    /* gentle global transitions */
-    :root, *{transition-property: background, border-color, color, opacity; transition-duration: .18s;}
-
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
-
-    /* ===== Header / Navigation ===== */
-    .masthead{
-      position:sticky; top:10px; z-index:40;
-      margin:8px 0 0;
-      background: var(--masthead-bg);
-      backdrop-filter: blur(8px);
-      border:1px solid var(--line);
-      border-radius:12px;
-      box-shadow: 0 6px 22px rgba(17,24,39,.04);
-    }
-    .masthead .inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:12px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .id{display:flex; gap:12px; align-items:center; min-width: 220px}
-    .mark{width:40px; height:40px; border-radius:10px; border:1px solid var(--line); display:grid; place-items:center; font-family:var(--serif); font-weight:700; color:var(--accent2); background: linear-gradient(135deg, rgba(15,118,110,.12), rgba(17,24,39,.04));}
-    .id h1{margin:0; font-size:15px}
-    .id p{margin:0; font-size:12px; color:var(--muted2)}
-
-    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
-    .tab{border:1px solid var(--line); background: rgba(255,255,255,.6); padding:9px 12px; border-radius:999px; font-size:13px; color:var(--accent2); cursor:pointer}
-    .tab:hover{background:var(--surface)}
-    .tab[aria-selected="true"]{border-color: rgba(15,118,110,.28); background: linear-gradient(90deg, rgba(15,118,110,.08), rgba(15,118,110,.04)); color:var(--accent); box-shadow: 0 6px 18px rgba(15,118,110,.03)}
-    .tab{position:relative}
-    .tab[aria-selected="true"]::after{content:""; position:absolute; left:14%; right:14%; bottom:-6px; height:3px; border-radius:999px; background:linear-gradient(90deg,var(--accent),var(--accent2));}
-
-    /* ===== Layout & Grid ===== */
-    .grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:16px; margin-top:18px}
-    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
-
-    /* Card: Container für Inhaltsblöcke mit Hover-Animation */
-    .card{background: var(--paper); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; transform:translateZ(0); transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s}
-    .card:hover{transform:translateY(-8px); box-shadow: 0 22px 48px rgba(17,24,39,.08)}
-    
-    /* Card Header: Titel und Bereich-Kennzeichnung */
-    .card .hd{padding:16px 16px 12px; border-bottom:1px solid var(--line); background: linear-gradient(180deg, var(--card-hd-start), var(--card-hd-end));}
-    .card .hd h2, .card .hd h3{margin:0; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color: var(--muted2); font-weight:700}
-    
-    /* Card Body: Haupt-Inhaltsbereich */
-    .card .bd{padding:16px}
-
-    /* ===== Typo & Content ===== */
-    .headline{font-family:var(--serif); font-size:34px; line-height:1.08; margin:0 0 10px}
-    .lead{margin:0; color:var(--muted); max-width:70ch}
-
-    /* Pillen (Tags für Kurz-Info) */
-    .pillrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
-    .pill{border:1px solid var(--line); background:var(--surface); padding:7px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
-    
-    /* Call-to-Action & Buttons */
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-    .btn{border:1px solid var(--line); background:var(--surface); padding:10px 12px; border-radius:12px; text-decoration:none; font-size:13px; color:var(--accent2); display:inline-flex; align-items:center; gap:10px}
-    .btn.primary{border-color: rgba(15,118,110,.45); background: rgba(15,118,110,.10); color: var(--accent); font-weight:650}
-
-    /* ===== Tab-Sections (dynamisch sichtbar/verborgen) ===== */
-    .section{display:none; margin-top:16px}
-    .section.active{display:block}
-
-    /* ===== Timeline & Items (Bildung, Praktika, Zertifikate) ===== */
-    .timeline{display:grid; gap:12px}
-    /* Einzelnes Zeiteintrag-Item */
-    .item{border:1px solid var(--line); border-radius:12px; padding:12px; background:var(--surface)}
-    .item .top{display:flex; justify-content:space-between; gap:10px; align-items:baseline}
-    .role{font-weight:700; color: var(--accent2)}
-    .meta{font-size:12px; color: var(--muted2)}
-    .desc{margin:8px 0 0; color: var(--muted); font-size:13px}
-
-    /* ===== Skills & Fertigkeits-Meter ===== */
-    .skill{display:grid; grid-template-columns: 150px 1fr; gap:12px; align-items:center; margin:12px 0}
-    @media (max-width: 560px){ .skill{grid-template-columns: 1fr} }
-    /* Fortschrittsbalken für Skill-Level */
-    .meter{height:10px; border-radius:999px; background: var(--muted-bg); border:1px solid var(--line); overflow:hidden}
-    .meter > span{display:block; height:100%; width:0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius:999px; transition: width 900ms cubic-bezier(.2,.8,.2,1)}
-    
-    /* Keyword-Tags */
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-    .tag{border:1px solid var(--line); background:var(--surface); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
-
-    /* ===== Kontakt-Formular ===== */
-    form{display:grid; gap:10px}
-    label{font-size:12px; color:var(--muted2)}
-    input, textarea{width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--ink); outline:none}
-    input:focus, textarea:focus{border-color: rgba(15,118,110,.45)}
-    textarea{min-height:120px; resize:vertical}
-    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-    @media (max-width: 700px){ .row{grid-template-columns:1fr} }
-    
-    /* Info-Hinweis-Box */
-    .note{border:1px dashed var(--muted-dashed); background: var(--muted-note-bg); border-radius:14px; padding:10px 12px; font-size:12px; color:var(--muted)}
-
-    /* ===== Footer ===== */
-    footer{margin-top:26px; border-top:1px solid var(--line); padding-top:16px; color:var(--muted2); font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
-    .mono{font-family:var(--mono)}
-
-    /* ===== Dark-Theme Variablen-Overrides ===== */
-    [data-theme="dark"]{
-      --bg: #07121a;
-      --paper: #0b1620;
-      --surface: #0b1620;
-      --muted-bg: rgba(255,255,255,0.03);
-      --card-hd-start: rgba(255,255,255,0.03);
-      --card-hd-end: rgba(255,255,255,0.015);
-      --muted-note-bg: rgba(255,255,255,0.03);
-      --muted-dashed: rgba(255,255,255,0.06);
-      --masthead-bg: rgba(2,6,23,.6);
-      --ink: #e6eef6;
-      --muted: #9fb0bf;
-      --muted2: #93a5b3;
-      --line: rgba(255,255,255,0.06);
-      --accent: #06b6d4; /* brighter cyan */
-      --accent2: #0891b2;
-      --shadow: 0 18px 48px rgba(2,6,23,.6);
-    }
-
-    /* ===== Einblend-Animationen (Scroll-Reveal) ===== */
-    .animate{opacity:0; transform:translateY(10px); will-change: transform, opacity}
-    .in-view{opacity:1; transform:none; transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1)}
-
-    /* ===== Barrierefreiheit: Reduzierte Bewegungen respektieren ===== */
-    /* Für Nutzer mit Bewegungsempfindlichkeit: Kurze/keine Animationen */
-    @media (prefers-reduced-motion: reduce){
-      .animate, .in-view, .meter > span, .card{transition:none !important}
-    }
-  </style>
 </head>
 <body>
   <!-- ===== HEADER / STICKY NAVIGATION ===== -->
@@ -293,7 +117,7 @@
     <!-- JavaScript steuert .active Klasse - nur aktive Section sichtbar -->
     <section id="ueber" class="section active" aria-label="Über">
       <div class="card">
-        <div class="hd"><h3>Über mich</h3></div>
+        <div class="hd"><h2>Über mich</h2></div>
         <div class="bd">
           <p class="lead" style="margin-top:0">
             Ich arbeite gern mit klaren Abläufen: Grundlagen, Planung, Umsetzung, Kontrolle.
@@ -312,7 +136,7 @@
     <section id="laufbahn" class="section" aria-label="Laufbahn">
       <div class="grid">
         <div class="card">
-          <div class="hd"><h3>Schulbildung</h3></div>
+          <div class="hd"><h2>Schulbildung</h2></div>
           <div class="bd">
             <div class="timeline">
               <div class="item">
@@ -327,24 +151,13 @@
                 <div class="top"><div class="role">Agnes von Hohenstaufen Schule</div><div class="meta">09/2023 – 07/2024 · Schwäbisch Gmünd</div></div>
                 <p class="desc">BKP I.</p>
               </div>
-              <div class="item">
-                <div class="top"><div class="role">Adalbert-Stifter Realschule</div><div class="meta">09/2019 – 07/2023 · Schwäbisch Gmünd</div></div>
-                <p class="desc">Realschulabschluss.</p>
-              </div>
-              <div class="item">
-                <div class="top"><div class="role">Hans-Baldung Gymnasium</div><div class="meta">09/2017 – 07/2019 · Schwäbisch Gmünd</div></div>
-                <p class="desc">Gymnasium (Wechsel zur Realschule).</p>
-              </div>
-              <div class="item">
-                <div class="top"><div class="role">Stauferschule</div><div class="meta">09/2013 – 07/2017 · Schwäbisch Gmünd</div></div>
-                <p class="desc">Grundschule.</p>
-              </div>
+
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="hd"><h3>Erfahrung & Praktika</h3></div>
+          <div class="hd"><h2>Erfahrung & Praktika</h2></div>
           <div class="bd">
             <div class="timeline">
               <div class="item">
@@ -372,7 +185,7 @@
     <section id="skills" class="section" aria-label="Skills">
       <div class="grid">
         <div class="card">
-          <div class="hd"><h3>Technik</h3></div>
+          <div class="hd"><h2>Technik</h2></div>
           <div class="bd">
             <div class="skill"><div><b>HTML</b> <span style="color:var(--muted2);font-size:12px">Frontend</span></div><div class="meter" data-fill="85"><span></span></div></div>
             <div class="skill"><div><b>CSS</b> <span style="color:var(--muted2);font-size:12px">Layout/Design</span></div><div class="meter" data-fill="78"><span></span></div></div>
@@ -392,7 +205,7 @@
         </div>
 
         <div class="card">
-          <div class="hd"><h3>Sprachen & Interessen</h3></div>
+          <div class="hd"><h2>Sprachen & Interessen</h2></div>
           <div class="bd">
             <div class="skill"><div><b>Deutsch</b> <span style="color:var(--muted2);font-size:12px">fließend</span></div><div class="meter" data-fill="95"><span></span></div></div>
             <div class="skill"><div><b>Kroatisch</b> <span style="color:var(--muted2);font-size:12px">fließend</span></div><div class="meter" data-fill="90"><span></span></div></div>
@@ -411,7 +224,7 @@
     <section id="zertifikate" class="section" aria-label="Zertifikate">
       <!-- ===== SECTION: ZERTIFIKATE & QUALIFIKATIONEN ===== -->
       <div class="card">
-        <div class="hd"><h3>Zertifikate</h3></div>
+        <div class="hd"><h2>Zertifikate</h2></div>
         <div class="bd">
           <div class="timeline">
             <div class="item">
@@ -449,7 +262,7 @@
       <!-- Mail-Formular mit localStorage-Integration & responsivem Layout -->
       <div class="grid">
         <div class="card">
-          <div class="hd"><h3>Kontakt</h3></div>
+          <div class="hd"><h2>Kontakt</h2></div>
           <div class="bd">
             <div class="timeline">
               <div class="item">
@@ -473,7 +286,7 @@
         </div>
 
         <div class="card">
-          <div class="hd"><h3>Nachricht (Mail-Entwurf)</h3></div>
+          <div class="hd"><h2>Nachricht (Mail-Entwurf)</h2></div>
           <div class="bd">
             <form id="contactForm">
               <div class="row">
@@ -502,165 +315,11 @@
     <!-- Jahr wird von JavaScript automatisch aktualisiert -->
     <footer>
       <div>© <span id="year"></span> Denny Svalina</div>
-      <div class="mono">HTML/CSS/JS · Version 2 (Editorial)</div>
+      <div class="mono">HTML/CSS/JS · Version 3 (Modular)</div>
     </footer>
   </main>
 
-  <script>
-    /* ===== HAUPT-SCRIPT: Navigation, Animationen, Theme-Handling ===== */
-    (function(){
-      const tabs = Array.from(document.querySelectorAll('.tab'));
-      const sections = Array.from(document.querySelectorAll('.section'));
-
-      /* ===== TAB-NAVIGATION: Sektion-Wechsel ===== */
-      /* Wechselt aktiven Tab und zeigt entsprechenden Section-Inhalt an */
-      function setActive(id){
-        sections.forEach(s => s.classList.toggle('active', s.id === id));
-        tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === id)));
-
-        /* Wenn Skills-Sektion: Meter animieren */
-        if(id === 'skills'){
-          document.querySelectorAll('.meter').forEach(m=>{
-            const fill = Number(m.getAttribute('data-fill') || 0);
-            const span = m.querySelector('span');
-            if(span) span.style.width = fill + '%';
-          });
-        }
-      }
-      /* Event-Listener: Klick auf Tab triggert Content-Wechsel */
-      tabs.forEach(btn => btn.addEventListener('click', ()=>setActive(btn.dataset.tab)));
-
-      /* ===== FOOTER-JAHR: Automatisch aktualisieren ===== */
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      /* ===== KONTAKT-FORMULAR: Mailto-Integration ===== */
-      const form = document.getElementById('contactForm');
-      const note = document.getElementById('formNote');
-      
-      form.addEventListener('submit', (e)=>{
-        /* Standard-Form-Verhalten verhindern, eigene E-Mail-Aktion durchführen */
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const msg = document.getElementById('msg').value.trim();
-
-        /* Mailto-URL zusammenstellen mit Nutzerdaten */
-        const subject = encodeURIComponent('Kontakt über Portfolio-Website');
-        const body = encodeURIComponent(
-          'Name: ' + (name || '-') + '\n' +
-          'E-Mail: ' + (email || '-') + '\n\n' +
-          'Nachricht:\n' + (msg || '-')
-        );
-
-        /* Feedback: Mailto-Client öffnen oder Fehlermeldung */
-        note.style.display = 'block';
-        note.textContent = 'Entwurf erstellt. Wenn sich kein Mailprogramm öffnet, ist Mailto im Browser blockiert.';
-        window.location.href = 'mailto:dennysvalina@gmail.com?subject=' + subject + '&body=' + body;
-      });
-
-      /* Standard-Tab beim Laden: "Über mich" */
-      setActive('ueber');
-
-      /* ===== SCROLL-REVEAL ANIMATIONEN: IntersectionObserver ===== */
-      /* Prüfe, ob Nutzer Bewegungsanimationen reduziert haben möchte (Accessibility) */
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      
-      /* Alle Elemente sammeln, die animiert werden sollen */
-      const toObserve = Array.from(document.querySelectorAll('.card, .item, .skill, .meter, .headline, .lead, .pillrow, .tags, .cta'));
-
-      /* Alle Elemente initial mit 'animate'-Klasse versehen (versteckt/transparent) */
-      toObserve.forEach(el => el.classList.add('animate'));
-
-      if(prefersReduced){
-        /* Für Nutzer mit Bewegungsempfindlichkeit: Alles direkt sichtbar machen */
-        toObserve.forEach(el => el.classList.add('in-view'));
-        /* Skill-Meter sofort zum finalen Wert */
-        document.querySelectorAll('.meter').forEach(m=>{
-          const span = m.querySelector('span');
-          const fill = Number(m.getAttribute('data-fill') || 0);
-          if(span) span.style.width = fill + '%';
-        });
-      } else {
-        /* ===== IntersectionObserver: Elegante Scroll-Reveal Animationen ===== */
-        const obs = new IntersectionObserver((entries, o)=>{
-          /* Callback: Wenn Element in Sichtbereich kommt, Animation anstoßen */
-          entries.forEach(entry=>{
-            if(entry.isIntersecting){
-              const el = entry.target;
-              /* Aktiviert CSS-Transition/Animation für dieses Element */
-              el.classList.add('in-view');
-              
-              /* Spezialfall: Skill-Meter mit Ladebalken animieren */
-              if(el.classList.contains('meter')){
-                const span = el.querySelector('span');
-                const fill = Number(el.getAttribute('data-fill') || 0);
-                if(span) span.style.width = fill + '%';
-              } else {
-                /* Verzögerter Eintritt für Kinder-Elemente (visueller Staggering-Effekt) */
-                Array.from(el.children).forEach((c,i)=>{ c.style.transitionDelay = (i*40) + 'ms'; });
-              }
-              /* Element aus Beobachtung entfernen (Performance-Optimierung) */
-              o.unobserve(el);
-            }
-          });
-        }, {threshold:0.12});
-
-        /* Observer zu allen animierbaren Elementen starten */
-        toObserve.forEach(el => obs.observe(el));
-      }
-
-      /* ===== THEME HANDLING: Light / Dark Mode System ===== */
-      const toggle = document.getElementById('themeToggle');
-      const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-
-      /* Wendet Theme an: setzt data-theme Attribut und updatet Toggle-Icon */
-      function applyTheme(theme){
-        /* Theme-Logik: Explizit Dark/Light oder System-Einstellung folgen */
-        if(theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-        else if(theme === 'light') document.documentElement.removeAttribute('data-theme');
-        else { /* system preference */
-          if(systemDark && systemDark.matches) document.documentElement.setAttribute('data-theme', 'dark');
-          else document.documentElement.removeAttribute('data-theme');
-        }
-        /* Update UI: Toggle-Button Icon wechseln */
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if(toggle){ 
-          toggle.setAttribute('aria-pressed', String(isDark)); 
-          /* Icon: 🌙 für Light-Mode, ☀️ für Dark-Mode */
-          toggle.textContent = isDark ? '☀️' : '🌙'; 
-        }
-      }
-
-      /* ===== THEME-PERSISTENZ: localStorage + System-Prefs ===== */
-      /* Beim Laden: Gespeicherte Einstellung oder System-Preferenz nutzen */
-      const stored = localStorage.getItem('theme');
-      applyTheme(stored || 'system');
-
-      /* ===== TOGGLE-BUTTON: Theme umschalten (Dark <-> Light) ===== */
-      if(toggle){
-        toggle.addEventListener('click', ()=>{
-          /* Aktuellen Mode ermitteln und alternieren */
-          const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-          const next = cur === 'dark' ? 'light' : 'dark';
-          /* Neue Wahl speichern und sofort anwenden */
-          localStorage.setItem('theme', next);
-          applyTheme(next);
-        });
-      }
-
-      /* ===== SYSTEMPREFERENZ-BEOBACHTER: OS-Theme ändert sich ===== */
-      /* Wenn Nutzer System-Theme ändert und wir im 'system'-Modus sind: Follow-up */
-      if(systemDark && systemDark.addEventListener){
-        systemDark.addEventListener('change', ()=>{
-          const stored = localStorage.getItem('theme');
-          /* Nur folgen wenn User nicht manuell gewählt hat */
-          if(!stored || stored === 'system') applyTheme('system');
-        });
-      }
-
-    })();
-    /* ===== Ende: Haupt-Script ===== */
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
