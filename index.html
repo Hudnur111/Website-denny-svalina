@@ -3,175 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denny Svalina | Portfolio & Projekte</title>
+    <title>Denny Svalina | Tech & Innovation Professional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts für modernen Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        * {
+            font-family: 'Inter', sans-serif;
         }
+
+        /* ===== FARBPALETTE: Modernes Corporate B2B/Tech Design ===== */
+        :root {
+            /* Primäre Farben */
+            --dark-bg: #0F172A;        /* Dunkles Navy */
+            --secondary-bg: #1E293B;    /* Mittel Navy */
+            --accent-primary: #06B6D4;  /* Cyan Blau */
+            --accent-secondary: #F97316; /* Modern Orange */
+            --text-primary: #F1F5F9;   /* Helles Grau */
+            --text-secondary: #CBD5E1; /* Mittelgrau */
+            --border-color: #334155;   /* Subtile Border */
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION STYLING ===== */
         .nav-link {
             position: relative;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -2px;
+            bottom: -6px;
             left: 0;
-            background-color: #3b82f6;
+            background-color: var(--accent-primary);
             transition: width 0.3s ease;
         }
+
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+
         .nav-link:hover::after {
             width: 100%;
         }
+
+        /* ===== BUTTON STYLES ===== */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), #0891B2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-primary);
+            color: var(--dark-bg);
+        }
+
+        /* ===== KARTEN & CONTAINER STYLING ===== */
+        .card-modern {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .card-modern:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* ===== TIMELINE STYLING ===== */
         .timeline-item::before {
             content: '';
             position: absolute;
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            left: -8px;
+            left: -6px;
             top: 0;
-            background: #3b82f6;
+            background: var(--accent-primary);
+            box-shadow: 0 0 0 4px var(--secondary-bg);
         }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+
+        /* ===== SKILL BADGES ===== */
         .skill-badge {
+            background-color: rgba(6, 182, 212, 0.1);
+            color: var(--accent-primary);
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
+
         .skill-badge:hover {
+            background-color: var(--accent-primary);
+            color: var(--dark-bg);
             transform: scale(1.05);
+        }
+
+        /* ===== GRADIENT TEXT ===== */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ===== SECTION SPACING ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        /* ===== ICON STYLING ===== */
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+
+        .card-modern:hover .icon-box {
+            background: var(--accent-primary);
+            color: var(--dark-bg);
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+<body class="bg-slate-950">
+    <!-- ===== HAUPTNAVIGATION ===== -->
+    <nav class="bg-slate-900 shadow-lg sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Brandname -->
                 <div class="flex items-center">
-                    <a href="#" class="text-xl font-bold gradient-text">Denny Svalina</a>
+                    <a href="#" class="text-2xl font-bold gradient-text">
+                        <i class="fas fa-code mr-2"></i>Denny Svalina
+                    </a>
                 </div>
+                
+                <!-- Desktop Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-500">Über mich</a>
-                    <a href="#education" class="nav-link text-gray-700 hover:text-blue-500">Bildung</a>
-                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-500">Fähigkeiten</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500">Projekte</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500">Kontakt</a>
+                    <a href="#about" class="nav-link text-sm font-medium">Über mich</a>
+                    <a href="#education" class="nav-link text-sm font-medium">Bildung</a>
+                    <a href="#skills" class="nav-link text-sm font-medium">Kompetenzen</a>
+                    <a href="#projects" class="nav-link text-sm font-medium">Projekte</a>
+                    <a href="#contact" class="nav-link text-sm font-medium">Kontakt</a>
                 </div>
+                
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <button id="menu-btn" class="text-gray-400 hover:text-cyan-400 focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4 shadow-md">
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-500">Über mich</a>
-            <a href="#education" class="block py-2 text-gray-700 hover:text-blue-500">Bildung</a>
-            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-500">Fähigkeiten</a>
-            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-500">Projekte</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-500">Kontakt</a>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700 px-4 py-4 space-y-2">
+            <a href="#about" class="block px-4 py-2 text-gray-300 hover:text-cyan-400 transition">Über mich</a>
+            <a href="#education" class="block px-4 py-2 text-gray-300 hover:text-cyan-400 transition">Bildung</a>
+            <a href="#skills" class="block px-4 py-2 text-gray-300 hover:text-cyan-400 transition">Kompetenzen</a>
+            <a href="#projects" class="block px-4 py-2 text-gray-300 hover:text-cyan-400 transition">Projekte</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-300 hover:text-cyan-400 transition">Kontakt</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-50 to-green-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Digitale Medien & Medizin</h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 gradient-text">Schüler mit Zukunft</h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Technikbegeistert, wissbegierig und engagiert. Mein Ziel: Wissen sinnvoll einsetzen und mit Herzblut weiterentwickeln.
+    <!-- ===== HERO SECTION: Moderne Corporate Präsentation ===== -->
+    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        <!-- Dekorative Background-Elemente -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text Content -->
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">
+                            <i class="fas fa-rocket mr-2"></i>Innovation & Technologie
+                        </p>
+                        <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                            Digitale Lösungen für moderne Herausforderungen
+                        </h1>
+                    </div>
+                    
+                    <p class="text-xl text-slate-300 leading-relaxed max-w-xl">
+                        Tech-Enthusiast mit Fokus auf Web- und App-Entwicklung. Ich kombiniere Kreativität mit solider Technik, um innovative Lösungen zu schaffen.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                            Meine Projekte
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <a href="#projects" class="btn-primary px-8 py-3 rounded-lg font-semibold text-center transition">
+                            <i class="fas fa-folder-open mr-2"></i>Meine Projekte
                         </a>
-                        <a href="#contact" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">
-                            Kontakt
+                        <a href="#contact" class="btn-secondary px-8 py-3 rounded-lg font-semibold text-center">
+                            <i class="fas fa-envelope mr-2"></i>Kontakt aufnehmen
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-green-400 opacity-20"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-user-circle text-gray-300 text-8xl"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Über mich</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-                        <h3 class="text-xl font-semibold mb-4">Persönliche Daten</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-birthday-cake text-blue-500 mt-1 mr-3"></i>
-                                <span><strong>Geboren:</strong> 21. Juni 2006</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i>
-                                <span><strong>Ort:</strong> Schwäbisch Gmünd, Deutschland</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm mt-6">
-                        <h3 class="text-xl font-semibold mb-4">Sprachen</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                <span>Deutsch – fließend</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                <span>Kroatisch – fließend</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                <span>Englisch – fließend</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                <span>Französisch – Grundkenntnisse</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm h-full">
-                        <h3 class="text-xl font-semibold mb-4">Meine Interessen</h3>
-                        <p class="mb-4">
-                            Ich interessiere mich seit Jahren leidenschaftlich für medizinische Themen, insbesondere Notfallmedizin und TCCC, ebenso wie für digitale Technologien, App-Entwicklung und Webdesign.
-                        </p>
-                        <p class="mb-4">
-                            Durch praktische Erfahrungen, Projekte und Fortbildungen konnte ich mein Wissen ständig erweitern und vertiefen.
-                        </p>
-                        <div class="mt-6">
-                            <h4 class="font-medium mb-2">Meine Leidenschaften:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Medizin</span>
-                                <span class="skill-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Webentwicklung</span>
-                                <span class="skill-badge bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">App-Entwicklung</span>
-                                <span class="skill-badge bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">3D-Druck</span>
-                                <span class="skill-badge bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Notfallmedizin</span>
+                
+                <!-- Hero Visual -->
+                <div class="flex justify-center">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <!-- Animated Circle Background -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-400 to-orange-400 rounded-2xl opacity-20 blur-2xl animate-pulse"></div>
+                        <div class="absolute inset-0 rounded-2xl border border-cyan-400 opacity-30"></div>
+                        
+                        <!-- Content in Circle -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <i class="fas fa-code text-7xl text-cyan-400 mb-4 opacity-80"></i>
+                            <div class="text-center">
+                                <p class="text-white font-semibold text-xl">Developer</p>
+                                <p class="text-slate-300 text-sm">& Tech Innovator</p>
                             </div>
                         </div>
                     </div>
@@ -180,62 +267,168 @@
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Schullaufbahn & Bildung</h2>
+    <!-- ===== ABOUT SECTION: Persönliches Profil ===== -->
+    <section id="about" class="bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Über mich</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Professionelle Expertise trifft auf Leidenschaft für innovation
+                </p>
+            </div>
             
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Info Card 1 -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-user text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Persönliches Profil</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-calendar text-cyan-400 mr-3"></i>
+                            <span><strong>Geburtsjahr:</strong> 2006</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-pin text-cyan-400 mr-3"></i>
+                            <span><strong>Standort:</strong> Schwäbisch Gmünd</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-globe text-cyan-400 mr-3"></i>
+                            <span><strong>Land:</strong> Deutschland</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Info Card 2 -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-language text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Sprachkenntnisse</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-300">Deutsch</span>
+                            <span class="text-xs font-bold text-cyan-400">FLIESSEND</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-300">Englisch</span>
+                            <span class="text-xs font-bold text-cyan-400">FLIESSEND</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-300">Kroatisch</span>
+                            <span class="text-xs font-bold text-cyan-400">FLIESSEND</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-300">Französisch</span>
+                            <span class="text-xs font-bold text-orange-400">GRUNDLAGEN</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Info Card 3 -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Kerninteressen</h3>
+                    <p class="text-slate-400 mb-4">
+                        Spezialisiert auf modernen Web-Stack, App-Entwicklung und innovative Technologielösungen.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Web Dev</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">App Dev</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Tech</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extended Bio -->
+            <div class="card-modern">
+                <h3 class="text-2xl font-bold mb-6 text-white">Professionelle Vorstellung</h3>
+                <p class="text-slate-300 mb-4 leading-relaxed">
+                    Mit leidenschaftlichem Fokus auf Technologie und Innovation entwickle ich Lösungen, die echte Probleme lösen. Meine Expertise umfasst moderne Webentwicklung, Cross-Platform-App-Entwicklung und die Implementierung innovativer Konzepte.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                    Durch kontinuierliches Lernen und praktische Projekte erweitere ich ständig mein Fachkenntnisse. Mein Ziel ist es, Technologie nutzbringend einzusetzen und positive Auswirkungen zu schaffen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION SECTION: Bildungsweg als Timeline ===== -->
+    <section id="education" class="bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Bildungsweg</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Kontinuierliches Lernen und berufliche Entwicklung
+                </p>
+            </div>
+            
+            <!-- Moderne Timeline -->
             <div class="relative">
-                <!-- Timeline -->
-                <div class="border-l-2 border-blue-200 pl-8 ml-4 space-y-10">
-                    <!-- Timeline item -->
-                    <div class="relative timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-semibold">BKP II – Pflege und Gesundheit (AVH)</h3>
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2024–2025</span>
-                            </div>
-                            <p class="mt-2 text-gray-600">Geplanter Abschluss: Fachhochschulreife</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline item -->
-                    <div class="relative timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-semibold">BKP I – Pflege und Gesundheit (AVH)</h3>
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2023–2024</span>
+                <!-- Timeline Linie (vertikal) -->
+                <div class="absolute left-0 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 to-orange-400"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12 md:space-y-16">
+                    <!-- Bildungsstation 1 -->
+                    <div class="md:even:pl-0 md:even:pr-[calc(50%+2rem)] md:odd:pl-[calc(50%+2rem)] md:odd:pr-0">
+                        <div class="relative timeline-item">
+                            <div class="card-modern md:w-5/6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-white flex-1">BKP II – Pflege und Gesundheit</h3>
+                                    <span class="bg-cyan-400 bg-opacity-20 text-cyan-400 px-4 py-1 rounded-full text-sm font-semibold flex-shrink-0 ml-4">2024 – 2025</span>
+                                </div>
+                                <p class="text-slate-400">Schulzentrum für Gesundheit</p>
+                                <p class="text-slate-300 mt-2">Angestrebte Qualifikation: Fachhochschulreife</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Timeline item -->
-                    <div class="relative timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-semibold">Adalbert-Stifter-Realschule</h3>
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2019–2023</span>
-                            </div>
-                            <p class="mt-2 text-gray-600">Erreicht: Realschulabschluss (2024)</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline item -->
-                    <div class="relative timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-semibold">Hans-Baldung-Gymnasium</h3>
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2017–2019</span>
+                    <!-- Bildungsstation 2 -->
+                    <div class="md:even:pl-0 md:even:pr-[calc(50%+2rem)] md:odd:pl-[calc(50%+2rem)] md:odd:pr-0">
+                        <div class="relative timeline-item">
+                            <div class="card-modern md:w-5/6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-white flex-1">BKP I – Pflege und Gesundheit</h3>
+                                    <span class="bg-cyan-400 bg-opacity-20 text-cyan-400 px-4 py-1 rounded-full text-sm font-semibold flex-shrink-0 ml-4">2023 – 2024</span>
+                                </div>
+                                <p class="text-slate-400">Schulzentrum für Gesundheit</p>
+                                <p class="text-slate-300 mt-2">Grundlagen Gesundheitsberufe und Pflege</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Timeline item -->
-                    <div class="relative timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-semibold">Grundschule Stauferschule</h3>
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2013–2017</span>
+                    <!-- Bildungsstation 3 -->
+                    <div class="md:even:pl-0 md:even:pr-[calc(50%+2rem)] md:odd:pl-[calc(50%+2rem)] md:odd:pr-0">
+                        <div class="relative timeline-item">
+                            <div class="card-modern md:w-5/6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-white flex-1">Adalbert-Stifter-Realschule</h3>
+                                    <span class="bg-cyan-400 bg-opacity-20 text-cyan-400 px-4 py-1 rounded-full text-sm font-semibold flex-shrink-0 ml-4">2019 – 2023</span>
+                                </div>
+                                <p class="text-slate-400">Schwäbisch Gmünd</p>
+                                <p class="text-slate-300 mt-2"><strong>Abschluss:</strong> Realschulabschluss mit gutem Erfolg</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bildungsstation 4 -->
+                    <div class="md:even:pl-0 md:even:pr-[calc(50%+2rem)] md:odd:pl-[calc(50%+2rem)] md:odd:pr-0">
+                        <div class="relative timeline-item">
+                            <div class="card-modern md:w-5/6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-white flex-1">Hans-Baldung-Gymnasium</h3>
+                                    <span class="bg-cyan-400 bg-opacity-20 text-cyan-400 px-4 py-1 rounded-full text-sm font-semibold flex-shrink-0 ml-4">2017 – 2019</span>
+                                </div>
+                                <p class="text-slate-400">Schwäbisch Gmünd</p>
+                                <p class="text-slate-300 mt-2">Gymnasium mit Fokus auf Naturwissenschaften</p>
                             </div>
                         </div>
                     </div>
@@ -244,283 +437,398 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Fähigkeiten & Kompetenzen</h2>
-            
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <p class="text-lg text-gray-600">
-                    Ich verbinde kreative Gestaltung mit technischem Know-how. Besonders gern arbeite ich an interaktiven Weblösungen oder medizinischen Tools zur Digitalisierung von Arbeitsprozessen.
+    <!-- ===== SKILLS SECTION: Fähigkeiten und Kompetenzen ===== -->
+    <section id="skills" class="bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Kompetenzen & Technologien</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Moderne Tech-Stack und bewährte Best Practices
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Skill Card 1 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-500 text-4xl mb-4">
-                        <i class="fas fa-code"></i>
+            <!-- Skill Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Skill Card: Web Development -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-code text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Webentwicklung</h3>
-                    <p class="text-gray-600 mb-4">Erfahrung in HTML, CSS und JavaScript für moderne Webanwendungen.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Webentwicklung</h3>
+                    <p class="text-slate-400 mb-6">
+                        Moderne Web-Anwendungen mit HTML, CSS und JavaScript. Responsive Design und Performance-Optimierung.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">CSS</span>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">HTML5</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">CSS3</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Tailwind</span>
                     </div>
                 </div>
                 
-                <!-- Skill Card 2 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-mobile-alt"></i>
+                <!-- Skill Card: App Development -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-mobile-alt text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">App Entwicklung</h3>
-                    <p class="text-gray-600 mb-4">Entwicklung von praktischen Anwendungen für den medizinischen Bereich.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-white">App-Entwicklung</h3>
+                    <p class="text-slate-400 mb-6">
+                        Funktionale Anwendungen für diverse Plattformen. Fokus auf User Experience und Zuverlässigkeit.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Anamnese-Apps</span>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Browser Extensions</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Cross-Platform</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">APIs</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Databases</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Testing</span>
                     </div>
                 </div>
                 
-                <!-- Skill Card 3 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-purple-500 text-4xl mb-4">
-                        <i class="fas fa-cube"></i>
+                <!-- Skill Card: Design & Innovation -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-lightbulb text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">3D-Druck</h3>
-                    <p class="text-gray-600 mb-4">Erfahrung in der Erstellung und Umsetzung von 3D-Druck Projekten.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Design & Innovation</h3>
+                    <p class="text-slate-400 mb-6">
+                        3D-Modellierung, Prototyping und innovative Lösungen. Technologie nutzbringend einsetzen.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">3D-Modellierung</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Prototyping</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">3D-Design</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Prototyping</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">UX/UI</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Innovation</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Resources -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-semibold text-center mb-8">Weitere Einblicke & Ressourcen</h3>
+            <!-- Tech Stack Übersicht -->
+            <div class="card-modern mb-16">
+                <h3 class="text-2xl font-bold mb-8 text-white flex items-center">
+                    <i class="fas fa-toolbox mr-3 text-cyan-400"></i>
+                    Tech Stack & Werkzeuge
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-brands fa-js text-3xl text-yellow-400 mb-2"></i>
+                        <p class="font-semibold text-slate-300">JavaScript</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-brands fa-html5 text-3xl text-orange-500 mb-2"></i>
+                        <p class="font-semibold text-slate-300">HTML5</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-brands fa-css3-alt text-3xl text-blue-500 mb-2"></i>
+                        <p class="font-semibold text-slate-300">CSS3</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-database text-3xl text-green-400 mb-2"></i>
+                        <p class="font-semibold text-slate-300">Datenbanken</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-cube text-3xl text-purple-400 mb-2"></i>
+                        <p class="font-semibold text-slate-300">3D-Druck</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-git-alt text-3xl text-red-500 mb-2"></i>
+                        <p class="font-semibold text-slate-300">Git</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-layer-group text-3xl text-slate-300 mb-2"></i>
+                        <p class="font-semibold text-slate-300">APIs</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800 bg-opacity-50 rounded-lg border border-slate-700 hover:border-cyan-400 transition">
+                        <i class="fas fa-tachometer-alt text-3xl text-cyan-400 mb-2"></i>
+                        <p class="font-semibold text-slate-300">Performance</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ressourcen / Dokumentation -->
+            <div>
+                <h3 class="text-2xl font-bold mb-8 text-white flex items-center">
+                    <i class="fas fa-book mr-3 text-cyan-400"></i>
+                    Lernressourcen & Dokumentation
+                </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <a href="https://drive.google.com/file/d/1JyAyyNTOuQYWhyjmzf1C89mZ_4PL0CCk/view?usp=sharing" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 border border-gray-200 hover:border-blue-300">
-                        <div class="text-blue-500 text-3xl mb-4">
-                            <i class="fas fa-file-code"></i>
-                        </div>
-                        <h4 class="font-medium mb-2">HTML-Anleitung (Teil 1)</h4>
-                        <p class="text-gray-600 text-sm">Grundlagen der Webentwicklung</p>
+                    <a href="https://drive.google.com/file/d/1JyAyyNTOuQYWhyjmzf1C89mZ_4PL0CCk/view?usp=sharing" target="_blank" class="card-modern group hover:border-cyan-400">
+                        <i class="fas fa-file-code text-4xl text-cyan-400 mb-4 group-hover:scale-110 transition inline-block"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">HTML-Anleitung Teil 1</h4>
+                        <p class="text-slate-400 text-sm mb-4">Umfassender Einstieg in Webentwicklungs-Grundlagen</p>
+                        <span class="inline-block text-cyan-400 font-semibold text-sm">Zur Dokumentation →</span>
                     </a>
                     
-                    <a href="https://drive.google.com/file/d/1C3GaQfpAYAcwOrIv2H4AMNe2_K64dD8D/view?usp=sharing" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 border border-gray-200 hover:border-blue-300">
-                        <div class="text-blue-500 text-3xl mb-4">
-                            <i class="fas fa-file-code"></i>
-                        </div>
-                        <h4 class="font-medium mb-2">HTML-Anleitung (Teil 2)</h4>
-                        <p class="text-gray-600 text-sm">Fortgeschrittene Techniken</p>
+                    <a href="https://drive.google.com/file/d/1C3GaQfpAYAcwOrIv2H4AMNe2_K64dD8D/view?usp=sharing" target="_blank" class="card-modern group hover:border-cyan-400">
+                        <i class="fas fa-file-code text-4xl text-cyan-400 mb-4 group-hover:scale-110 transition inline-block"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">HTML-Anleitung Teil 2</h4>
+                        <p class="text-slate-400 text-sm mb-4">Fortgeschrittene Techniken und Best Practices</p>
+                        <span class="inline-block text-cyan-400 font-semibold text-sm">Zur Dokumentation →</span>
                     </a>
                     
-                    <a href="https://drive.google.com/file/d/1SHBfayy98IyDOfZ1phBl_DRRiXo9flGF/view?usp=sharing" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 border border-gray-200 hover:border-blue-300">
-                        <div class="text-purple-500 text-3xl mb-4">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <h4 class="font-medium mb-2">Beispielprojekt 3D-Druck</h4>
-                        <p class="text-gray-600 text-sm">Praktische Anwendungen</p>
+                    <a href="https://drive.google.com/file/d/1SHBfayy98IyDOfZ1phBl_DRRiXo9flGF/view?usp=sharing" target="_blank" class="card-modern group hover:border-cyan-400">
+                        <i class="fas fa-cube text-4xl text-purple-400 mb-4 group-hover:scale-110 transition inline-block"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">3D-Druck Portfolio</h4>
+                        <p class="text-slate-400 text-sm mb-4">Praktische 3D-Design und Prototyping Projekte</p>
+                        <span class="inline-block text-purple-400 font-semibold text-sm">Zum Projekt →</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Projekte & Veröffentlichungen</h2>
+    <!-- ===== PROJECTS SECTION: Portfolio der Arbeiten ===== -->
+    <section id="projects" class="bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Projektportfolio</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Innovative Lösungen und praktische Implementierungen
+                </p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 text-blue-800 p-3 rounded-lg mr-4">
-                            <i class="fas fa-gamepad text-xl"></i>
+            <!-- Projekte Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Project 1: Leitstellenspiel Dashboard -->
+                <div class="card-modern group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="icon-box text-xl group-hover:scale-110 transition">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">Leitstellenspiel Verkehrs- und Wetterdaten Dashboard</h3>
+                        <a href="https://github.com/Hudnur111/Leitstellenspiel-Verkehrs--und-Wetterdaten-Dashboard" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        Ein Dashboard für das Leitstellenspiel, das Verkehrs- und Wetterdaten in Echtzeit anzeigt.
+                    <h3 class="text-xl font-bold text-white mb-2">Leitstellenspiel Dashboard</h3>
+                    <p class="text-slate-400 mb-4">
+                        Echtzeit-Dashboard für Verkehrs- und Wetterdaten im Leitstellenspiel. Moderne Datenvisualisierung mit Live-Updates.
                     </p>
-                    <a href="https://github.com/Hudnur111/Leitstellenspiel-Verkehrs--und-Wetterdaten-Dashboard" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-                        <span>Zum Projekt</span>
-                        <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">APIs</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Dashboard</span>
+                    </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
-                            <i class="fas fa-ambulance text-xl"></i>
+                <!-- Project 2: Fahrzeug Verzögerung Tool -->
+                <div class="card-modern group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="icon-box text-xl group-hover:scale-110 transition">
+                            <i class="fas fa-ambulance"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">Leitstellenspiel Ausrücke-Verzögerung der Fahrzeuge</h3>
+                        <a href="https://github.com/Hudnur111/-Leitstellenspiel-Ausr-cke-Verz-gerung-der-Fahrzeuge.user.js" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        Ein Tool, das die Ausrückezeiten von Fahrzeugen im Leitstellenspiel optimiert und analysiert.
+                    <h3 class="text-xl font-bold text-white mb-2">Fahrzeug-Optimierung Tool</h3>
+                    <p class="text-slate-400 mb-4">
+                        Intelligentes Tool zur Optimierung und Analyse von Fahrzeugeinsatzzeiten. Maximale Effizienz durch Echtzeit-Analysen.
                     </p>
-                    <a href="https://github.com/Hudnur111/-Leitstellenspiel-Ausr-cke-Verz-gerung-der-Fahrzeuge.user.js" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-                        <span>Zum Projekt</span>
-                        <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">User Script</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Datenanalyse</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Optimierung</span>
+                    </div>
                 </div>
                 
-                <!-- Project 3 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-purple-100 text-purple-800 p-3 rounded-lg mr-4">
-                            <i class="fas fa-shield-alt text-xl"></i>
+                <!-- Project 3: CleanBrowse -->
+                <div class="card-modern group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="icon-box text-xl group-hover:scale-110 transition">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">CleanBrowse</h3>
+                        <a href="https://github.com/Hudnur111/CleanBrowse.user.js" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        Ein Add Blocker Browser, der das Surfen im Internet sicherer und angenehmer macht.
+                    <h3 class="text-xl font-bold text-white mb-2">CleanBrowse Extension</h3>
+                    <p class="text-slate-400 mb-4">
+                        Browser-Erweiterung für sicheres und zu störungsfreies Web-Browsing. Blockiert Werbung und verbessert Sicherheit.
                     </p>
-                    <a href="https://github.com/Hudnur111/CleanBrowse.user.js" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-                        <span>Zum Projekt</span>
-                        <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Browser API</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Ad Blocking</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Security</span>
+                    </div>
                 </div>
                 
-                <!-- Project 4 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-sm transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-red-100 text-red-800 p-3 rounded-lg mr-4">
-                            <i class="fas fa-heartbeat text-xl"></i>
+                <!-- Project 4: Anamnese App -->
+                <div class="card-modern group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="icon-box text-xl group-hover:scale-110 transition">
+                            <i class="fas fa-heartbeat"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">Anamnese-App</h3>
+                        <a href="https://github.com/Hudnur111/Anamnese-App" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        Eine medizinische App zur Erfassung von Patientendaten und Anamnese.
+                    <h3 class="text-xl font-bold text-white mb-2">Anamnese-App</h3>
+                    <p class="text-slate-400 mb-4">
+                        Medizinische Anwendung zur professionellen Patientendatenerfassung. Strukturierte digitale Anamnese für Fachkräfte.
                     </p>
-                    <a href="https://github.com/Hudnur111/Anamnese-App" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-                        <span>Zum Projekt</span>
-                        <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Healthcare</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Forms</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm font-medium">Database</span>
+                    </div>
                 </div>
             </div>
             
-            <div class="mt-12 text-center">
-                <p class="text-gray-600">
-                    Die Projekte vereinen meine Interessen in Programmierung, Design und medizinischer Anwendung. Viele davon sind Open Source und ständig in Entwicklung.
+            <!-- Project Summary -->
+            <div class="card-modern border border-cyan-400 border-opacity-50 bg-gradient-to-r from-slate-800 to-slate-700">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-star text-2xl text-orange-400 mr-3"></i>
+                    <h3 class="text-xl font-bold text-white">Projektphilosophie</h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed">
+                    Alle Projekte kombinieren technische Exzellenz mit praktischem Nutzen. Open-Source Ansatz, kontinuierliche Verbesserung und Fokus auf reale Probleme-Lösung. Die Projekte stehen auf GitHub zur Verfügung und sind aktiv in der Weiterentwicklung.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Engagement Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Politisches Engagement</h2>
+    <!-- ===== ENGAGEMENT SECTION: Politisches und gesellschaftliches Engagement ===== -->
+    <section class="bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Gesellschaftliches Engagement</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Aktives Einbringen von Ideen und Gestaltung von Zukunft
+                </p>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Engagement 1 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-yellow-100 text-yellow-800 p-3 rounded-lg mr-4">
-                            <i class="fas fa-users text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Jugendforum ASR GD</h3>
+                <!-- Engagement 1: Jugendforum -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-6 text-xl group-hover:scale-110 transition">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        Ich war Mitglied des Jugendforums der ASR auf kommunaler Ebene sowie auf der Ostalb-Ebene. In dieser Funktion habe ich zahlreiche Schulprojekte geplant und an Planungen auf Kreisebene und kommunaler Ebene mitgewirkt.
+                    <h3 class="text-2xl font-bold text-white mb-3">Jugendforum ASR</h3>
+                    <p class="text-slate-400 mb-4 leading-relaxed">
+                        Aktives Mitglied des Jugendforums auf kommunal- und Ostalb-Ebene. Verantwortlich für Planung und Umsetzung von Schulprojekten sowie Mitgestaltung von Strategien auf Kreis- und Kommunalebene.
                     </p>
-                    <a href="https://jugendforum.wixsite.com/jugendforum-asr-gd/de" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-                        <span>Zur Website</span>
-                        <i class="fas fa-external-link-alt ml-2"></i>
+                    <a href="https://jugendforum.wixsite.com/jugendforum-asr-gd/de" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold">
+                        <span>Zur Initiative</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
                 
-                <!-- Engagement 2 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
-                            <i class="fas fa-landmark text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">ÖDP Ostalbkreis</h3>
+                <!-- Engagement 2: ÖDP -->
+                <div class="card-modern group">
+                    <div class="icon-box mb-6 text-xl group-hover:scale-110 transition">
+                        <i class="fas fa-landmark"></i>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        Ich war mehrere Jahre in der ÖDP Ostalb tätig, wo wir uns auf die Kommunalebene konzentriert und gemeinsam mit anderen Parteien in Schwäbisch Gmünd zusammengearbeitet haben.
+                    <h3 class="text-2xl font-bold text-white mb-3">ÖDP Ostalbkreis</h3>
+                    <p class="text-slate-400 mb-4 leading-relaxed">
+                        Mehrjähriges Engagement in der ÖDP Ostalb mit Fokus auf Kommunalpolitik. Zusammenarbeit mit anderen Parteien für nachhaltige Lösungen und zukunftsorientierte Gestaltung in Schwäbisch Gmünd.
                     </p>
-                    <a href="https://www.oedp-ostalb.de/startseite" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-                        <span>Zur Website</span>
-                        <i class="fas fa-external-link-alt ml-2"></i>
+                    <a href="https://www.oedp-ostalb.de/startseite" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold">
+                        <span>Zur Organisation</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gradient-to-r from-blue-50 to-green-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Kontakt</h2>
+    <!-- ===== CONTACT SECTION: Kontakt und Verbindung ===== -->
+    <section id="contact" class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-40 right-20 w-80 h-80 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Lass uns in Kontakt treten</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Bereit für ein Gespräch? Ich freue mich auf die Zusammenarbeit!
+                </p>
+            </div>
             
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-xl shadow-sm">
-                        <h3 class="text-xl font-semibold mb-6">Schreib mir eine Nachricht</h3>
-                        <form id="contact-form" class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Nachricht</label>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                                Nachricht senden
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-xl shadow-sm h-full">
-                        <h3 class="text-xl font-semibold mb-6">Kontaktinformationen</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 text-blue-800 p-3 rounded-lg mr-4">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">Telefon</h4>
-                                    <p class="text-gray-600">+49 152 03721539</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">Email</h4>
-                                    <p class="text-gray-600">denny.svalin2@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 text-purple-800 p-3 rounded-lg mr-4">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">Adresse</h4>
-                                    <p class="text-gray-600">Schwäbisch Gmünd, Deutschland</p>
-                                </div>
-                            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div class="card-modern">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-envelope mr-3 text-cyan-400"></i>
+                        Direkte Nachricht
+                    </h3>
+                    <form id="contact-form" class="space-y-4">
+                        <!-- Name Input -->
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-slate-300 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-20 transition outline-none" placeholder="Ihr Name">
                         </div>
                         
-                        <div class="mt-8">
-                            <a href="https://spreadly.app/p/4wbc1boylf" target="_blank" class="inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                                <i class="fas fa-id-card mr-2"></i>
-                                Meine digitale Visitenkarte ansehen
+                        <!-- Email Input -->
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-slate-300 mb-2">E-Mail</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-20 transition outline-none" placeholder="ihre.email@example.com">
+                        </div>
+                        
+                        <!-- Message Textarea -->
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-slate-300 mb-2">Nachricht</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-20 transition outline-none resize-none" placeholder="Ihre Nachricht..."></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold text-white transition">
+                            <i class="fas fa-paper-plane mr-2"></i>Nachricht senden
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-6">
+                    <!-- Phone -->
+                    <div class="card-modern group">
+                        <div class="icon-box mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-phone-alt text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Telefon</h4>
+                        <a href="tel:+491520372153" class="text-slate-400 hover:text-cyan-400 transition font-medium">+49 152 03721539</a>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="card-modern group">
+                        <div class="icon-box mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">E-Mail</h4>
+                        <a href="mailto:denny.svalin2@gmail.com" class="text-slate-400 hover:text-cyan-400 transition font-medium">denny.svalin2@gmail.com</a>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="card-modern group">
+                        <div class="icon-box mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-map-marker-alt text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Standort</h4>
+                        <p class="text-slate-400">Schwäbisch Gmünd<br>Deutschland</p>
+                    </div>
+                    
+                    <!-- Digital Business Card -->
+                    <a href="https://spreadly.app/p/4wbc1boylf" target="_blank" class="block w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white py-4 rounded-lg font-semibold text-center transition transform hover:scale-105">
+                        <i class="fas fa-id-card mr-2"></i>
+                        Digitale Visitenkarte ansehen
+                    </a>
+                    
+                    <!-- Social / Quick Links -->
+                    <div class="card-modern">
+                        <h4 class="text-lg font-bold text-white mb-4">Mehr Information</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="https://github.com/Hudnur111" target="_blank" class="flex items-center justify-center py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-slate-300 hover:text-cyan-400 transition">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a href="#projects" class="flex items-center justify-center py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-slate-300 hover:text-cyan-400 transition">
+                                <i class="fas fa-briefcase mr-2"></i>Projekte
                             </a>
                         </div>
                     </div>
@@ -529,30 +837,59 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p>&copy; 2024 Denny Svalina. Alle Rechte vorbehalten.</p>
+    <!-- ===== FOOTER: Website Abschluss ===== -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                <!-- Footer Section 1: Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold gradient-text mb-2">
+                        <i class="fas fa-code mr-2"></i>Denny Svalina
+                    </h3>
+                    <p class="text-slate-400">Tech Innovator & Developer</p>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
+                
+                <!-- Footer Section 2: Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#about" class="hover:text-cyan-400 transition">Über mich</a></li>
+                        <li><a href="#skills" class="hover:text-cyan-400 transition">Kompetenzen</a></li>
+                        <li><a href="#projects" class="hover:text-cyan-400 transition">Projekte</a></li>
+                        <li><a href="#contact" class="hover:text-cyan-400 transition">Kontakt</a></li>
+                    </ul>
                 </div>
+                
+                <!-- Footer Section 3: Social -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Social & Links</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/Hudnur111" target="_blank" class="text-slate-400 hover:text-cyan-400 transition text-xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="text-slate-400 hover:text-cyan-400 transition text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:denny.svalin2@gmail.com" class="text-slate-400 hover:text-cyan-400 transition text-xl">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-slate-800 pt-8 text-center">
+                <p class="text-slate-500 text-sm">
+                    &copy; 2024 Denny Svalina. Alle Rechte vorbehalten. | Erstellt mit modernem Web-Design
+                </p>
             </div>
         </div>
     </footer>
 
+    <!-- ===== JAVASCRIPT: Interaktivität und Funktionalität ===== -->
     <script>
-        // Mobile menu toggle
+        // ===== MOBILE MENU TOGGLE =====
+        // Umschalter für mobiles Menü
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -560,7 +897,8 @@
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Smooth scrolling for anchor links
+        // ===== SMOOTH SCROLLING für Anker-Links =====
+        // Sanfte Navigation zu Sektionen
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -574,7 +912,7 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
+                    // Mobile Menu schließen falls offen
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
@@ -582,23 +920,51 @@
             });
         });
         
-        // Form submission
+        // ===== KONTAKT FORM HANDLING =====
+        // Verarbeitung des Kontaktformulars
         const contactForm = document.getElementById('contact-form');
         
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            // Formulardaten abrufen
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
             
-            // Here you would typically send the form data to a server
-            // For this example, we'll just show an alert
-            alert(`Vielen Dank für Ihre Nachricht, ${name}! Wir werden uns bald bei Ihnen melden.`);
+            // Validierung
+            if (!name || !email || !message) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
             
-            // Reset form
+            // Erfolgreiche Nachricht
+            const successMessage = `Vielen Dank für Ihre Nachricht, ${name}!\n\nWir werden uns bald bei Ihnen unter ${email} melden.`;
+            alert(successMessage);
+            
+            // Formular zurücksetzen
             contactForm.reset();
+        });
+        
+        // ===== ANIMATION ON SCROLL =====
+        // Elemente beim Scrollen animieren
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Alle Card-Elemente für Animation registrieren
+        document.querySelectorAll('.card-modern').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
