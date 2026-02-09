@@ -195,24 +195,27 @@ a {
   padding: 9px 12px;
   border-radius: 999px;
   font-size: 13px;
-  color: var(--accent2);
+  color: var(--ink);
   cursor: pointer;
   position: relative;
+  font-weight: 500;
 }
 
 .tab:hover {
   background: var(--surface);
+  color: var(--accent);
 }
 
 .tab[aria-selected="true"] {
   border-color: rgba(15, 118, 110, 0.28);
   background: linear-gradient(
     90deg,
-    rgba(15, 118, 110, 0.08),
-    rgba(15, 118, 110, 0.04)
+    rgba(15, 118, 110, 0.12),
+    rgba(15, 118, 110, 0.08)
   );
   color: var(--accent);
-  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.03);
+  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.08);
+  font-weight: 600;
 }
 
 .tab[aria-selected="true"]::after {
