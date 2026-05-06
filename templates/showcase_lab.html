@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Showcase-Lab · Bewerbungs-Showcase{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Interaktive Python-Demos</p>
+        <h1>Showcase-Lab</h1>
+        <p>Diese Seite zeigt kleine Funktionen, die komplett serverseitig mit Python berechnet werden.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container lab-grid">
+        <article class="lab-card">
+            <div class="section-title compact">
+                <p class="eyebrow">Textanalyse</p>
+                <h2>Bewerbungstext prüfen</h2>
+                <p>Python zählt Zeichen, Wörter, Sätze und schätzt die Lesedauer.</p>
+            </div>
+
+            <form class="lab-form" method="POST" action="{{ url_for('showcase_lab') }}">
+                <input type="hidden" name="action" value="text">
+                <label>
+                    Text eingeben
+                    <textarea name="text_input" rows="7" placeholder="Kurzen Bewerbungstext einfügen">{{ text_input }}</textarea>
+                </label>
+                <button type="submit">Analysieren</button>
+            </form>
+
+            <div class="result-grid">
+                <div><strong>{{ text_result.characters }}</strong><span>Zeichen</span></div>
+                <div><strong>{{ text_result.words }}</strong><span>Wörter</span></div>
+                <div><strong>{{ text_result.sentences }}</strong><span>Sätze</span></div>
+                <div><strong>{{ text_result.reading_minutes }}</strong><span>Min. lesen</span></div>
+            </div>
+            <p class="lab-feedback"><strong>{{ text_result.quality }}:</strong> {{ text_result.tip }}</p>
+        </article>
+
+        <article class="lab-card">
+            <div class="section-title compact">
+                <p class="eyebrow">Projekt-Check</p>
+                <h2>Showcase-Score berechnen</h2>
+                <p>Checkboxen werden per POST an Flask gesendet und dort bewertet.</p>
+            </div>
+
+            <form class="check-form" method="POST" action="{{ url_for('showcase_lab') }}">
+                <input type="hidden" name="action" value="score">
+                <label><input type="checkbox" name="responsive"> Responsive Design vorhanden</label>
+                <label><input type="checkbox" name="validation"> Formularvalidierung vorhanden</label>
+                <label><input type="checkbox" name="search"> Serverseitige Suche vorhanden</label>
+                <label><input type="checkbox" name="clean_design"> Einheitliches Design vorhanden</label>
+                <label><input type="checkbox" name="documentation"> README-Dokumentation vorhanden</label>
+                <button type="submit">Score berechnen</button>
+            </form>
+
+            {% if score_result %}
+            <div class="score-box">
+                <strong>{{ score_result.score }}%</strong>
+                <span>{{ score_result.label }}</span>
+                <p>{{ score_result.text }}</p>
+            </div>
+            {% else %}
+            <div class="score-box muted">
+                <strong>?</strong>
+                <span>Noch nicht berechnet</span>
+                <p>Wähle passende Punkte aus und lass Python den Score berechnen.</p>
+            </div>
+            {% endif %}
+        </article>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bewerbungs-Showcase mit HTML, CSS und Python Flask.">
+    <title>{% block title %}Bewerbungs-Showcase{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-grid">
+            <a class="brand" href="{{ url_for('index') }}" aria-label="Zur Startseite">
+                <span class="brand-mark">BS</span>
+                <span>
+                    <span class="brand-title">Bewerbungs-Showcase</span>
+                    <span class="brand-subtitle">HTML · CSS · Python Flask</span>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Hauptnavigation">
+                <a class="{{ 'active' if request.endpoint == 'index' else '' }}" href="{{ url_for('index') }}">Start</a>
+                <a class="{{ 'active' if request.endpoint == 'projects' else '' }}" href="{{ url_for('projects') }}">Projekte</a>
+                <a class="{{ 'active' if request.endpoint == 'skills' else '' }}" href="{{ url_for('skills') }}">Skills</a>
+                <a class="{{ 'active' if request.endpoint == 'showcase_lab' else '' }}" href="{{ url_for('showcase_lab') }}">Lab</a>
+                <a class="{{ 'active' if request.endpoint == 'chatbot' else '' }}" href="{{ url_for('chatbot') }}">Chatbot</a>
+                <a class="{{ 'active' if request.endpoint == 'contact' else '' }}" href="{{ url_for('contact') }}">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <p>Technisches Showcase-Projekt für Bewerbungen</p>
+            <p>Umgesetzt mit HTML, CSS und Python Flask</p>
+        </div>
+    </footer>
+</body>
+</html>

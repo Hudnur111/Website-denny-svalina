@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Chatbot · Bewerbungs-Showcase{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Mini-Chatbot</p>
+        <h1>Serverseitige Antwortlogik</h1>
+        <p>Der Chatbot nutzt kein JavaScript. Die Eingabe wird per Formular an Flask geschickt.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container narrow">
+        <div class="chat-window">
+            {% if user_message %}
+            <div class="message user">
+                <strong>Du</strong>
+                <p>{{ user_message }}</p>
+            </div>
+            {% endif %}
+
+            <div class="message bot">
+                <strong>Bot</strong>
+                <p>{{ bot_answer }}</p>
+            </div>
+        </div>
+
+        <form class="chat-form" method="POST" action="{{ url_for('chatbot') }}">
+            <input type="text" name="message" placeholder="Frage z. B. nach Python, Flask, HTML oder CSS" aria-label="Nachricht an den Chatbot">
+            <button type="submit">Senden</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

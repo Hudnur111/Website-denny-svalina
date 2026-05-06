@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Kontakt · Bewerbungs-Showcase{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Formular-Demo</p>
+        <h1>Kontaktformular</h1>
+        <p>Die Daten werden serverseitig über Python geprüft und verarbeitet.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container narrow">
+        {% if result %}
+            <div class="alert {{ result.type }}">{{ result.text }}</div>
+        {% endif %}
+
+        <form class="form-card" method="POST" action="{{ url_for('contact') }}">
+            <label>
+                Name
+                <input type="text" name="name" value="{{ form_data.name }}" placeholder="Max Mustermann" required>
+            </label>
+
+            <label>
+                E-Mail
+                <input type="email" name="email" value="{{ form_data.email }}" placeholder="max@example.com" required>
+            </label>
+
+            <label>
+                Thema
+                <select name="topic">
+                    <option value="" {% if not form_data.topic %}selected{% endif %}>Bitte auswählen</option>
+                    <option value="Bewerbung" {% if form_data.topic == "Bewerbung" %}selected{% endif %}>Bewerbung</option>
+                    <option value="Projekt" {% if form_data.topic == "Projekt" %}selected{% endif %}>Projekt</option>
+                    <option value="Rückfrage" {% if form_data.topic == "Rückfrage" %}selected{% endif %}>Rückfrage</option>
+                </select>
+            </label>
+
+            <label>
+                Nachricht
+                <textarea name="message" rows="6" placeholder="Nachricht eingeben" required>{{ form_data.message }}</textarea>
+            </label>
+
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

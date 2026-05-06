@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Skills · Bewerbungs-Showcase{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Kompetenzübersicht</p>
+        <h1>Technische Grundlagen</h1>
+        <p>Die Balken werden rein mit HTML und CSS dargestellt. Die Inhalte kommen aus Python.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container skills-list">
+        {% for skill in skills %}
+        <article class="skill-card">
+            <div class="skill-head">
+                <div>
+                    <span class="badge">{{ loop.index }}</span>
+                    <h2>{{ skill.name }}</h2>
+                </div>
+                <strong>{{ skill.level }}%</strong>
+            </div>
+            <div class="bar" aria-label="{{ skill.name }} Kenntnisstand">
+                <div class="bar-fill" style="width: {{ skill.level }}%;"></div>
+            </div>
+            <p>{{ skill.text }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
