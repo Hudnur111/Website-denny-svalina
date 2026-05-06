@@ -1,33 +1,39 @@
-# Denny Portfolio Website
+# ✨ Denny Portfolio Website
 
-Moderne persoenliche Website fuer GitHub Pages. Die Seite besteht aus statischem HTML und CSS und kann direkt aus dem Repository veroeffentlicht werden.
+> Moderne persönliche Portfolio-Website für GitHub Pages  
+> Minimalistisch. Schnell. Professionell.
 
-## Dateien
+![HTML](https://img.shields.io/badge/HTML5-Structure-orange?style=for-the-badge&logo=html5)
+![CSS](https://img.shields.io/badge/CSS3-Styling-blue?style=for-the-badge&logo=css3)
+![Flask](https://img.shields.io/badge/Flask-Local_Testing-black?style=for-the-badge&logo=flask)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?style=for-the-badge&logo=github)
 
-- `index.html` enthaelt die komplette Seitenstruktur.
-- `style.css` enthaelt Design, Responsive Layouts und CSS-Animationen.
-- `app.py` ist optional fuer lokales Testen mit Flask. GitHub Pages fuehrt Python-Dateien nicht aus.
+---
 
-## Lokal ansehen
+## 🚀 Overview
 
-Oeffne `index.html` direkt im Browser oder starte optional Flask:
+Die **Denny Portfolio Website** ist eine moderne, responsive und stilvolle persönliche Website, entwickelt für eine professionelle Online-Präsenz auf **GitHub Pages**.
+
+Sie kombiniert:
+
+- sauberes Design
+- moderne Animationen
+- responsive Layouts
+- klare Struktur
+- schnelle Ladezeiten
+
+Die Seite basiert auf **reinem HTML & CSS** und kann direkt ohne Build-Prozess veröffentlicht werden.
+
+---
+
+## 🧩 Projektstruktur
 
 ```bash
-pip install flask
-python app.py
-```
-
-Danach ist die lokale Version unter `http://127.0.0.1:5000/` erreichbar.
-
-## Auf GitHub Pages veroeffentlichen
-
-1. Erstelle ein neues GitHub-Repository.
-2. Lade `index.html`, `style.css`, `README.md`, `.gitignore` und optional `app.py` hoch.
-3. Gehe im Repository zu `Settings` > `Pages`.
-4. Waehle bei `Build and deployment` die Quelle `Deploy from a branch`.
-5. Waehle den Branch `main` und den Ordner `/root`.
-6. Speichere die Einstellung und warte kurz, bis GitHub die Pages-URL erstellt.
-
-## Kontaktformular
-
-GitHub Pages ist statisch und kann kein Python-Backend ausfuehren. Das Formular nutzt deshalb `mailto:` und oeffnet das Mailprogramm mit einer vorbereiteten Nachricht an `denny.svalin2@gmail.com`.
+Denny-Portfolio/
+│
+├── index.html      # Struktur und Inhalt der Website
+├── style.css       # Design, Layout, Animationen, Responsive Styling
+├── app.py          # Optional: Lokaler Flask-Testserver
+├── README.md       # Projektdokumentation
+├── .gitignore      # Git Ignore Regeln
+└── .nojekyll       # Deaktiviert Jekyll für GitHub Pages
