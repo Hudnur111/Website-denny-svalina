@@ -28,6 +28,12 @@ Danach im Browser öffnen:
 http://127.0.0.1:5000
 ```
 
+## Deployment
+
+Dieses Projekt ist eine Flask-App. Für eine Live-Version mit Python-Backend eignet sich Render, Railway oder PythonAnywhere. GitHub Pages kann nur statische HTML/CSS/JS-Seiten ausführen.
+
+Für Render sind `Procfile`, `render.yaml` und `gunicorn` bereits vorbereitet.
+
 ## Struktur
 
 ```text
@@ -35,11 +41,14 @@ bewerbungs_showcase_html_css_python/
 |-- app.py
 |-- requirements.txt
 |-- README.md
+|-- Procfile
+|-- render.yaml
 |-- templates/
 |   |-- base.html
 |   |-- index.html
 |   |-- projects.html
 |   |-- skills.html
+|   |-- showcase_lab.html
 |   |-- chatbot.html
 |   `-- contact.html
 `-- static/
