@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bewerbungs-Showcase mit HTML, CSS und Python Flask.">
+    <title>Projekte · Bewerbungs-Showcase</title>
+    <link rel="stylesheet" href="/Website-denny-svalina/static/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-grid">
+            <a class="brand" href="/Website-denny-svalina/" aria-label="Zur Startseite">
+                <span class="brand-mark">BS</span>
+                <span>
+                    <span class="brand-title">Bewerbungs-Showcase</span>
+                    <span class="brand-subtitle">HTML · CSS · Python Flask</span>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Hauptnavigation">
+                <a class="" href="/Website-denny-svalina/">Start</a>
+                <a class="active" href="/Website-denny-svalina/projekte">Projekte</a>
+                <a class="" href="/Website-denny-svalina/skills">Skills</a>
+                <a class="" href="/Website-denny-svalina/showcase-lab">Lab</a>
+                <a class="" href="/Website-denny-svalina/chatbot">Chatbot</a>
+                <a class="" href="/Website-denny-svalina/kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Projektübersicht</p>
+        <h1>Module der Website</h1>
+        <p>Die Suche funktioniert serverseitig über Python und Flask.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <form class="search-box" method="GET" action="/Website-denny-svalina/projekte">
+            <input type="search" name="q" value="" placeholder="Nach Projekt, Kategorie oder Tag suchen" aria-label="Projekte suchen">
+            <button type="submit">Suchen</button>
+            
+        </form>
+
+        
+
+        <div class="project-grid">
+            
+            <article class="card project-card">
+                <span class="badge">Backend</span>
+                <h3>Serverseitige Suchfunktion</h3>
+                <p>Eine Suchseite, die Titel, Kategorien, Beschreibung und Tags komplett in Python filtert.</p>
+                <p class="result-text">Zeigt, wie Benutzereingaben sauber gelesen, normalisiert und verarbeitet werden.</p>
+                <dl class="mini-meta">
+                    <div>
+                        <dt>Technik</dt>
+                        <dd>Python, Flask, Suche</dd>
+                    </div>
+                    <div>
+                        <dt>Nutzen</dt>
+                        <dd>Zeigt praktische Grundlagen für echte Webprojekte.</dd>
+                    </div>
+                </dl>
+                <div class="tag-row">
+                    
+                        <span>Python</span>
+                    
+                        <span>Flask</span>
+                    
+                        <span>Suche</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card project-card">
+                <span class="badge">Formulare</span>
+                <h3>Kontaktformular mit Validierung</h3>
+                <p>Ein Formular mit Pflichtfeldern, E-Mail-Prüfung und klarer Rückmeldung nach dem Absenden.</p>
+                <p class="result-text">Macht sichtbar, dass Frontend-Struktur und Backend-Logik zusammenspielen.</p>
+                <dl class="mini-meta">
+                    <div>
+                        <dt>Technik</dt>
+                        <dd>HTML, POST, Validierung</dd>
+                    </div>
+                    <div>
+                        <dt>Nutzen</dt>
+                        <dd>Zeigt praktische Grundlagen für echte Webprojekte.</dd>
+                    </div>
+                </dl>
+                <div class="tag-row">
+                    
+                        <span>HTML</span>
+                    
+                        <span>POST</span>
+                    
+                        <span>Validierung</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card project-card">
+                <span class="badge">Backend</span>
+                <h3>Mini-Chatbot ohne JavaScript</h3>
+                <p>Ein regelbasierter Assistent, der Antworten serverseitig über Flask erzeugt.</p>
+                <p class="result-text">Demonstriert einfache Textanalyse, Bedingungen und wiederverwendbare Funktionen.</p>
+                <dl class="mini-meta">
+                    <div>
+                        <dt>Technik</dt>
+                        <dd>Python, Logik, Chatbot</dd>
+                    </div>
+                    <div>
+                        <dt>Nutzen</dt>
+                        <dd>Zeigt praktische Grundlagen für echte Webprojekte.</dd>
+                    </div>
+                </dl>
+                <div class="tag-row">
+                    
+                        <span>Python</span>
+                    
+                        <span>Logik</span>
+                    
+                        <span>Chatbot</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card project-card">
+                <span class="badge">Frontend</span>
+                <h3>Mehrseitige Webstruktur</h3>
+                <p>Gemeinsames Basis-Template, klare Navigation und ein einheitliches Layout für alle Seiten.</p>
+                <p class="result-text">Wirkt wie ein kleines echtes Webprojekt statt wie eine einzelne Übungsseite.</p>
+                <dl class="mini-meta">
+                    <div>
+                        <dt>Technik</dt>
+                        <dd>HTML, CSS, Templates</dd>
+                    </div>
+                    <div>
+                        <dt>Nutzen</dt>
+                        <dd>Zeigt praktische Grundlagen für echte Webprojekte.</dd>
+                    </div>
+                </dl>
+                <div class="tag-row">
+                    
+                        <span>HTML</span>
+                    
+                        <span>CSS</span>
+                    
+                        <span>Templates</span>
+                    
+                </div>
+            </article>
+            
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <p>Technisches Showcase-Projekt für Bewerbungen</p>
+            <p>Umgesetzt mit HTML, CSS und Python Flask</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bewerbungs-Showcase mit HTML, CSS und Python Flask.">
+    <title>Showcase-Lab · Bewerbungs-Showcase</title>
+    <link rel="stylesheet" href="/Website-denny-svalina/static/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-grid">
+            <a class="brand" href="/Website-denny-svalina/" aria-label="Zur Startseite">
+                <span class="brand-mark">BS</span>
+                <span>
+                    <span class="brand-title">Bewerbungs-Showcase</span>
+                    <span class="brand-subtitle">HTML · CSS · Python Flask</span>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Hauptnavigation">
+                <a class="" href="/Website-denny-svalina/">Start</a>
+                <a class="" href="/Website-denny-svalina/projekte">Projekte</a>
+                <a class="" href="/Website-denny-svalina/skills">Skills</a>
+                <a class="active" href="/Website-denny-svalina/showcase-lab">Lab</a>
+                <a class="" href="/Website-denny-svalina/chatbot">Chatbot</a>
+                <a class="" href="/Website-denny-svalina/kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Interaktive Python-Demos</p>
+        <h1>Showcase-Lab</h1>
+        <p>Diese Seite zeigt die Oberfläche der Python-Demos. Die Berechnung läuft in der Flask-Version.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container lab-grid">
+        <article class="lab-card">
+            <div class="section-title compact">
+                <p class="eyebrow">Textanalyse</p>
+                <h2>Bewerbungstext prüfen</h2>
+                <p>Python zählt Zeichen, Wörter, Sätze und schätzt die Lesedauer.</p>
+            </div>
+
+            <form class="lab-form" method="GET" action="/Website-denny-svalina/showcase-lab">
+                <input type="hidden" name="action" value="text">
+                <label>
+                    Text eingeben
+                    <textarea name="text_input" rows="7" placeholder="Kurzen Bewerbungstext einfügen"></textarea>
+                </label>
+                <button type="submit">Analysieren</button>
+            </form>
+
+            <div class="result-grid">
+                <div><strong>0</strong><span>Zeichen</span></div>
+                <div><strong>0</strong><span>Wörter</span></div>
+                <div><strong>0</strong><span>Sätze</span></div>
+                <div><strong>0</strong><span>Min. lesen</span></div>
+            </div>
+            <p class="lab-feedback"><strong>Warte auf Eingabe:</strong> Füge einen Text ein, um Wortzahl, Satzanzahl und Lesedauer zu berechnen.</p>
+        </article>
+
+        <article class="lab-card">
+            <div class="section-title compact">
+                <p class="eyebrow">Projekt-Check</p>
+                <h2>Showcase-Score berechnen</h2>
+                <p>Checkboxen werden per POST an Flask gesendet und dort bewertet.</p>
+            </div>
+
+            <form class="check-form" method="GET" action="/Website-denny-svalina/showcase-lab">
+                <input type="hidden" name="action" value="score">
+                <label><input type="checkbox" name="responsive"> Responsive Design vorhanden</label>
+                <label><input type="checkbox" name="validation"> Formularvalidierung vorhanden</label>
+                <label><input type="checkbox" name="search"> Serverseitige Suche vorhanden</label>
+                <label><input type="checkbox" name="clean_design"> Einheitliches Design vorhanden</label>
+                <label><input type="checkbox" name="documentation"> README-Dokumentation vorhanden</label>
+                <button type="submit">Score berechnen</button>
+            </form>
+
+            
+            <div class="score-box muted">
+                <strong>?</strong>
+                <span>Noch nicht berechnet</span>
+                <p>Wähle passende Punkte aus und lass Python den Score berechnen.</p>
+            </div>
+            
+        </article>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <p>Technisches Showcase-Projekt für Bewerbungen</p>
+            <p>Umgesetzt mit HTML, CSS und Python Flask</p>
+        </div>
+    </footer>
+</body>
+</html>

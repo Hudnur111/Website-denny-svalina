@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bewerbungs-Showcase mit HTML, CSS und Python Flask.">
+    <title>Kontakt · Bewerbungs-Showcase</title>
+    <link rel="stylesheet" href="/Website-denny-svalina/static/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-grid">
+            <a class="brand" href="/Website-denny-svalina/" aria-label="Zur Startseite">
+                <span class="brand-mark">BS</span>
+                <span>
+                    <span class="brand-title">Bewerbungs-Showcase</span>
+                    <span class="brand-subtitle">HTML · CSS · Python Flask</span>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Hauptnavigation">
+                <a class="" href="/Website-denny-svalina/">Start</a>
+                <a class="" href="/Website-denny-svalina/projekte">Projekte</a>
+                <a class="" href="/Website-denny-svalina/skills">Skills</a>
+                <a class="" href="/Website-denny-svalina/showcase-lab">Lab</a>
+                <a class="" href="/Website-denny-svalina/chatbot">Chatbot</a>
+                <a class="active" href="/Website-denny-svalina/kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Formular-Demo</p>
+        <h1>Kontaktformular</h1>
+        <p>Die Daten werden serverseitig über Python geprüft und verarbeitet.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container narrow">
+        
+
+        <form class="form-card" method="GET" action="/Website-denny-svalina/kontakt">
+            <label>
+                Name
+                <input type="text" name="name" value="" placeholder="Max Mustermann" required>
+            </label>
+
+            <label>
+                E-Mail
+                <input type="email" name="email" value="" placeholder="max@example.com" required>
+            </label>
+
+            <label>
+                Thema
+                <select name="topic">
+                    <option value="" selected>Bitte auswählen</option>
+                    <option value="Bewerbung" >Bewerbung</option>
+                    <option value="Projekt" >Projekt</option>
+                    <option value="Rückfrage" >Rückfrage</option>
+                </select>
+            </label>
+
+            <label>
+                Nachricht
+                <textarea name="message" rows="6" placeholder="Nachricht eingeben" required></textarea>
+            </label>
+
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <p>Technisches Showcase-Projekt für Bewerbungen</p>
+            <p>Umgesetzt mit HTML, CSS und Python Flask</p>
+        </div>
+    </footer>
+</body>
+</html>
